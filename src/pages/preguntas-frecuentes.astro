@@ -22,14 +22,14 @@ const sitio = obtenerConfiguracionSitio();
   </section>
 
   <section class="seccion">
-    <div class="contenedor rejilla">
-      {sitio.preguntasFrecuentes.map((item) => (
-        <details class="tarjeta">
-          <summary style="cursor: pointer; font-weight: 800; font-size: 1.05rem;">{item.pregunta}</summary>
-          <p class="texto-suave" style="margin: 1rem 0 0;">{item.respuesta}</p>
-        </details>
-      ))}
-    </div>
+      <div class="contenedor rejilla">
+        {sitio.preguntasFrecuentes.map((item) => (
+          <details class="tarjeta">
+            <summary class="pregunta-frecuente__resumen">{item.pregunta}</summary>
+            <p class="texto-suave pregunta-frecuente__respuesta">{item.respuesta}</p>
+          </details>
+        ))}
+      </div>
   </section>
 
   <section class="seccion-compacta">

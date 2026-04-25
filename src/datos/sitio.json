@@ -3,8 +3,8 @@
     "nombre": "Mate Diamante",
     "eslogan": "Clases en linea con ritmo, claridad y buena energia para avanzar de verdad.",
     "descripcionCorta": "Grupo de profesores que imparte cursos en linea para ingreso universitario y conclusion de preparatoria.",
-    "logotipo": "/marca/logotipo-mate-diamante.svg",
-    "avisoLogotipo": "Logotipo temporal. Sustituir por el archivo oficial de Mate Diamante cuando este disponible."
+    "logotipo": "/marca/logotipo-circular.png",
+    "avisoLogotipo": ""
   },
   "contacto": {
     "telefono": "525500000000",
@@ -202,7 +202,7 @@
   "seo": {
     "tituloBase": "Mate Diamante",
     "descripcionBase": "Cursos en linea para ingreso universitario y conclusion de preparatoria con clases por Google Meet y atencion directa por WhatsApp.",
-    "imagenCompartir": "/marca/logotipo-mate-diamante.svg"
+    "imagenCompartir": "/marca/compartir-mate-diamante.png"
   },
   "medicion": {
     "idGoogleTagManager": "",

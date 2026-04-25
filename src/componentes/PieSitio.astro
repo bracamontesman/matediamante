@@ -2,21 +2,15 @@
 import { conRutaBase, obtenerConfiguracionSitio, obtenerEnlaceWhatsApp } from "@utilidades/sitio";
 
 const { marca, contacto } = obtenerConfiguracionSitio();
-const rutaLogotipoPng = conRutaBase("/marca/logotipo-circular.png");
-const rutaLogotipoRespaldo = conRutaBase(marca.logotipo);
 ---
 
 <footer class="pie">
   <div class="contenedor">
     <div class="pie__rejilla">
       <section class="pie__marca">
-        <img
-          src={rutaLogotipoPng}
-          alt={`Logotipo de ${marca.nombre}`}
-          onerror={`this.onerror=null;this.src='${rutaLogotipoRespaldo}'`}
-        />
+        <img src={conRutaBase(marca.logotipo)} alt={`Logotipo de ${marca.nombre}`} />
         <p>{marca.descripcionCorta}</p>
-        <div class="nota texto-pequeno">{marca.avisoLogotipo}</div>
+        {marca.avisoLogotipo && <div class="nota texto-pequeno">{marca.avisoLogotipo}</div>}
       </section>
 
       <section>
@@ -32,7 +26,7 @@ const rutaLogotipoRespaldo = conRutaBase(marca.logotipo);
       <section>
         <h3>Contacto</h3>
         <ul>
-          <li><a href={obtenerEnlaceWhatsApp(contacto.mensajeGeneralWhatsApp)} target="_blank" rel="noreferrer">WhatsApp: {contacto.telefonoVisible}</a></li>
+          <li><a href={obtenerEnlaceWhatsApp(contacto.mensajeGeneralWhatsApp)} target="_blank" rel="noreferrer noopener">WhatsApp: {contacto.telefonoVisible}</a></li>
           <li><a href={`mailto:${contacto.correo}`}>{contacto.correo}</a></li>
           <li><p>{contacto.horarioAtencion}</p></li>
           <li><p>{contacto.direccionTexto}</p></li>

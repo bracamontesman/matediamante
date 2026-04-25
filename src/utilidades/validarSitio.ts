@@ -7,8 +7,12 @@ function esObjeto(valor: unknown): valor is Record<string, unknown> {
   return typeof valor === "object" && valor !== null && !Array.isArray(valor);
 }
 
-function asegurarTexto(valor: unknown, ruta: string): string {
-  if (typeof valor !== "string" || valor.trim().length === 0) {
+function asegurarTexto(valor: unknown, ruta: string, permitirVacio = false): string {
+  if (typeof valor !== "string") {
+    throw new Error(`El campo "${ruta}" debe ser un texto no vacio.`);
+  }
+
+  if (!permitirVacio && valor.trim().length === 0) {
     throw new Error(`El campo "${ruta}" debe ser un texto no vacio.`);
   }
 
@@ -83,7 +87,8 @@ export function validarSitio(origen: unknown = datosSitio): ConfiguracionSitio {
       logotipo: asegurarTexto(origen.marca && esObjeto(origen.marca) ? origen.marca.logotipo : null, "marca.logotipo"),
       avisoLogotipo: asegurarTexto(
         origen.marca && esObjeto(origen.marca) ? origen.marca.avisoLogotipo : null,
-        "marca.avisoLogotipo"
+        "marca.avisoLogotipo",
+        true
       )
     },
     contacto: {

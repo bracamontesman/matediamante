@@ -20,7 +20,7 @@ const imagenCompartir = new URL(conRutaBase(seo.imagenCompartir), Astro.site).to
 const scriptsMedicion = obtenerScriptsMedicion();
 const enlaceWhatsAppFlotante = obtenerEnlaceWhatsApp(contacto.mensajeGeneralWhatsApp);
 const rutaFaviconIco = conRutaBase("/favicon.ico");
-const rutaFaviconSvg = conRutaBase("/favicon.svg");
+const rutaAppleTouchIcon = conRutaBase("/apple-touch-icon.png");
 ---
 
 <!doctype html>
@@ -33,7 +33,7 @@ const rutaFaviconSvg = conRutaBase("/favicon.svg");
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#071927" />
     <link rel="icon" href={rutaFaviconIco} sizes="any" />
-    <link rel="icon" type="image/svg+xml" href={rutaFaviconSvg} />
+    <link rel="apple-touch-icon" href={rutaAppleTouchIcon} />
     <meta property="og:title" content={tituloDocumento} />
     <meta property="og:description" content={descripcionDocumento} />
     <meta property="og:type" content="website" />
@@ -109,7 +109,7 @@ const rutaFaviconSvg = conRutaBase("/favicon.svg");
       class="boton-whatsapp-flotante"
       href={enlaceWhatsAppFlotante}
       target="_blank"
-      rel="noreferrer"
+      rel="noreferrer noopener"
       data-evento="clic_whatsapp_flotante"
       data-mensaje={contacto.mensajeGeneralWhatsApp}
     >
@@ -126,6 +126,20 @@ const rutaFaviconSvg = conRutaBase("/favicon.svg");
           const estaAbierto = menu?.getAttribute("data-abierto") === "true";
           menu?.setAttribute("data-abierto", String(!estaAbierto));
           botonMenu.setAttribute("aria-expanded", String(!estaAbierto));
+        });
+
+        document.addEventListener("keydown", (evento) => {
+          if (evento.key !== "Escape") return;
+          menu?.setAttribute("data-abierto", "false");
+          botonMenu?.setAttribute("aria-expanded", "false");
+        });
+
+        document.addEventListener("click", (evento) => {
+          if (!(evento.target instanceof Node)) return;
+          if (!menu || !botonMenu) return;
+          if (menu.contains(evento.target) || botonMenu.contains(evento.target)) return;
+          menu.setAttribute("data-abierto", "false");
+          botonMenu.setAttribute("aria-expanded", "false");
         });
 
         const emitirEvento = (nombre, detalle = {}) => {
