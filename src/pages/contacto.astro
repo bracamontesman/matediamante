@@ -1,0 +1,84 @@
+---
+import BotonWhatsApp from "@componentes/BotonWhatsApp.astro";
+import DisenoBase from "@disenos/DisenoBase.astro";
+import { obtenerConfiguracionSitio } from "@utilidades/sitio";
+
+const sitio = obtenerConfiguracionSitio();
+---
+
+<DisenoBase
+  titulo="Contacto"
+  descripcion="Canales de contacto de Mate Diamante para informes e inscripciones."
+  rutaActual="/contacto/"
+>
+  <section class="pagina-encabezado">
+    <div class="contenedor bloque-titulo">
+      <span class="bloque-titulo__etiqueta">Contacto directo</span>
+      <h1>El canal principal de atencion es WhatsApp</h1>
+      <p>
+        La idea de esta v1 es hacer facil el contacto, dejar clara la operacion y reducir pasos para
+        que el alumno llegue rapido al grupo correcto.
+      </p>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor rejilla rejilla-2">
+      <article class="tarjeta">
+        <h2 style="font-family: Space Grotesk, sans-serif; margin-top: 0;">Como prefieres contactarnos?</h2>
+        <div class="lista-contacto">
+          <div class="item-con-icono">
+            <span>1</span>
+            <div>
+              <strong>WhatsApp</strong>
+              <p class="texto-suave" style="margin: 0.2rem 0 0;">
+                El medio mas rapido para resolver dudas e iniciar el proceso de inscripcion.
+              </p>
+            </div>
+          </div>
+          <div class="item-con-icono">
+            <span>2</span>
+            <div>
+              <strong>Correo</strong>
+              <p class="texto-suave" style="margin: 0.2rem 0 0;">{sitio.contacto.correo}</p>
+            </div>
+          </div>
+          <div class="item-con-icono">
+            <span>3</span>
+            <div>
+              <strong>Horario de atencion</strong>
+              <p class="texto-suave" style="margin: 0.2rem 0 0;">{sitio.contacto.horarioAtencion}</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="llamada">
+        <h2>Escribe segun tu necesidad</h2>
+        <p>
+          Puedes usar el mensaje general o entrar directo a una conversacion orientada a inscripcion,
+          convocatoria o seguimiento para concluir la preparatoria.
+        </p>
+        <div class="botones">
+          <BotonWhatsApp
+            mensaje={sitio.contacto.mensajeGeneralWhatsApp}
+            etiqueta="Informes generales"
+            evento="clic_whatsapp_contacto_general"
+          />
+          <BotonWhatsApp
+            mensaje="Hola, quiero informes para un curso de ingreso universitario."
+            etiqueta="Ingreso universitario"
+            clase="boton-secundario"
+            evento="clic_whatsapp_contacto_universidad"
+          />
+          <BotonWhatsApp
+            mensaje="Hola, quiero informes para concluir la preparatoria."
+            etiqueta="Conclusion de preparatoria"
+            clase="boton-secundario"
+            evento="clic_whatsapp_contacto_preparatoria"
+          />
+        </div>
+      </article>
+    </div>
+  </section>
+</DisenoBase>

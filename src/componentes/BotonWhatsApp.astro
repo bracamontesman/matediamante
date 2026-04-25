@@ -1,0 +1,30 @@
+---
+import { obtenerEnlaceWhatsApp } from "@utilidades/sitio";
+
+interface Propiedades {
+  mensaje: string;
+  etiqueta: string;
+  clase?: string;
+  evento?: string;
+}
+
+const {
+  mensaje,
+  etiqueta,
+  clase = "boton",
+  evento = "clic_whatsapp"
+} = Astro.props as Propiedades;
+
+const enlace = obtenerEnlaceWhatsApp(mensaje);
+---
+
+<a
+  class={clase}
+  href={enlace}
+  target="_blank"
+  rel="noreferrer"
+  data-evento={evento}
+  data-mensaje={mensaje}
+>
+  <span>{etiqueta}</span>
+</a>

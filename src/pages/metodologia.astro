@@ -1,0 +1,74 @@
+---
+import BotonWhatsApp from "@componentes/BotonWhatsApp.astro";
+import DisenoBase from "@disenos/DisenoBase.astro";
+import { obtenerConfiguracionSitio } from "@utilidades/sitio";
+
+const sitio = obtenerConfiguracionSitio();
+---
+
+<DisenoBase
+  titulo="Metodologia"
+  descripcion="Conoce como trabaja Mate Diamante para preparar alumnos en linea."
+  rutaActual="/metodologia/"
+>
+  <section class="pagina-encabezado">
+    <div class="contenedor bloque-titulo">
+      <span class="bloque-titulo__etiqueta">Como trabajamos</span>
+      <h1>{sitio.metodologia.titulo}</h1>
+      <p>{sitio.metodologia.descripcion}</p>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor rejilla rejilla-2">
+      <article class="tarjeta">
+        <h2 style="font-family: Space Grotesk, sans-serif; margin-top: 0;">Ruta de acompanamiento</h2>
+        <div class="lista-pasos">
+          {sitio.metodologia.pasos.map((paso, indice) => (
+            <div class="item-con-icono">
+              <span>{indice + 1}</span>
+              <div>
+                <strong>{paso.titulo}</strong>
+                <p class="texto-suave" style="margin: 0.2rem 0 0;">{paso.descripcion}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </article>
+
+      <article class="llamada">
+        <h2>Operacion simple para enfocarse en estudiar</h2>
+        <p>
+          El proceso comercial y el acceso a clases estan pensados para no distraer al alumno: se
+          informa, se inscribe y recibe por WhatsApp todo lo necesario para entrar a Google Meet.
+        </p>
+        <div class="panel-destacado">
+          <h3>Lo que siempre debe quedar claro</h3>
+          <ul class="lista-limpia apilado">
+            <li>Objetivo academico del curso</li>
+            <li>Fechas y horario del grupo</li>
+            <li>Forma de ingreso a Google Meet</li>
+            <li>Canal rapido de soporte por WhatsApp</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="seccion-compacta">
+    <div class="contenedor">
+      <div class="llamada">
+        <h3>Quieres validar que curso te conviene?</h3>
+        <p>
+          Una conversacion breve por WhatsApp basta para orientarte segun universidad, convocatoria
+          o necesidad de concluir la preparatoria.
+        </p>
+        <BotonWhatsApp
+          mensaje="Hola, quiero saber que curso o ruta de preparacion me conviene."
+          etiqueta="Orientarme por WhatsApp"
+          evento="clic_whatsapp_metodologia"
+        />
+      </div>
+    </div>
+  </section>
+</DisenoBase>

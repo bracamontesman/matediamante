@@ -1,0 +1,148 @@
+---
+import EncabezadoSitio from "@componentes/EncabezadoSitio.astro";
+import PieSitio from "@componentes/PieSitio.astro";
+import { conRutaBase, obtenerConfiguracionSitio, obtenerEnlaceWhatsApp } from "@utilidades/sitio";
+import { obtenerScriptsMedicion } from "@utilidades/medicion";
+import "@estilos/global.css";
+
+interface Propiedades {
+  titulo?: string;
+  descripcion?: string;
+  rutaActual?: string;
+}
+
+const { titulo, descripcion, rutaActual = "/" } = Astro.props as Propiedades;
+
+const { marca, seo, contacto } = obtenerConfiguracionSitio();
+const tituloDocumento = titulo ? `${titulo} | ${seo.tituloBase}` : seo.tituloBase;
+const descripcionDocumento = descripcion ?? seo.descripcionBase;
+const imagenCompartir = new URL(conRutaBase(seo.imagenCompartir), Astro.site).toString();
+const scriptsMedicion = obtenerScriptsMedicion();
+const enlaceWhatsAppFlotante = obtenerEnlaceWhatsApp(contacto.mensajeGeneralWhatsApp);
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{tituloDocumento}</title>
+    <meta name="description" content={descripcionDocumento} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#071927" />
+    <link rel="icon" type="image/svg+xml" href={conRutaBase("/favicon.svg")} />
+    <meta property="og:title" content={tituloDocumento} />
+    <meta property="og:description" content={descripcionDocumento} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={imagenCompartir} />
+    <meta property="og:site_name" content={marca.nombre} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={tituloDocumento} />
+    <meta name="twitter:description" content={descripcionDocumento} />
+    <meta name="twitter:image" content={imagenCompartir} />
+    {Astro.site && <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).toString()} />}
+
+    {scriptsMedicion.habilitarSeguimiento && scriptsMedicion.idGoogleTagManager && (
+      <>
+        <script is:inline>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: "inicio_sitio",
+              proyecto: "mate_diamante"
+            });
+          `}
+        </script>
+        <script is:inline>
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','${scriptsMedicion.idGoogleTagManager}');
+          `}
+        </script>
+      </>
+    )}
+
+    {scriptsMedicion.habilitarSeguimiento && scriptsMedicion.idPixelMeta && (
+      <script is:inline>
+        {`
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '${scriptsMedicion.idPixelMeta}');
+          fbq('track', 'PageView');
+        `}
+      </script>
+    )}
+  </head>
+
+  <body>
+    {scriptsMedicion.habilitarSeguimiento && scriptsMedicion.idGoogleTagManager && (
+      <noscript>
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=${scriptsMedicion.idGoogleTagManager}`}
+          height="0"
+          width="0"
+          style="display:none;visibility:hidden"
+          title="Google Tag Manager"
+        ></iframe>
+      </noscript>
+    )}
+
+    <div class="pagina">
+      <EncabezadoSitio rutaActual={rutaActual} />
+      <slot />
+      <PieSitio />
+    </div>
+
+    <a
+      class="boton-whatsapp-flotante"
+      href={enlaceWhatsAppFlotante}
+      target="_blank"
+      rel="noreferrer"
+      data-evento="clic_whatsapp_flotante"
+      data-mensaje={contacto.mensajeGeneralWhatsApp}
+    >
+      <span class="boton-whatsapp-flotante__icono">W</span>
+      <span>Habla con nosotros</span>
+    </a>
+
+    <script is:inline>
+      {`
+        const botonMenu = document.querySelector("[data-accion-menu]");
+        const menu = document.querySelector("#menu-principal");
+
+        botonMenu?.addEventListener("click", () => {
+          const estaAbierto = menu?.getAttribute("data-abierto") === "true";
+          menu?.setAttribute("data-abierto", String(!estaAbierto));
+          botonMenu.setAttribute("aria-expanded", String(!estaAbierto));
+        });
+
+        const emitirEvento = (nombre, detalle = {}) => {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: nombre,
+            ...detalle
+          });
+        };
+
+        document.querySelectorAll("[data-evento]").forEach((enlace) => {
+          enlace.addEventListener("click", () => {
+            emitirEvento(enlace.dataset.evento, {
+              etiqueta: enlace.textContent?.trim() || "",
+              mensaje: enlace.dataset.mensaje || "",
+              ruta: window.location.pathname
+            });
+          });
+        });
+      `}
+    </script>
+  </body>
+</html>

@@ -1,0 +1,212 @@
+{
+  "marca": {
+    "nombre": "Mate Diamante",
+    "eslogan": "Clases en linea con ritmo, claridad y buena energia para avanzar de verdad.",
+    "descripcionCorta": "Grupo de profesores que imparte cursos en linea para ingreso universitario y conclusion de preparatoria.",
+    "logotipo": "/marca/logotipo-mate-diamante.svg",
+    "avisoLogotipo": "Logotipo temporal. Sustituir por el archivo oficial de Mate Diamante cuando este disponible."
+  },
+  "contacto": {
+    "telefono": "525500000000",
+    "telefonoVisible": "+52 55 0000 0000",
+    "correo": "hola@matediamante.mx",
+    "horarioAtencion": "Lunes a viernes de 9:00 a 19:00",
+    "mensajeGeneralWhatsApp": "Hola, quiero informes sobre los cursos de Mate Diamante.",
+    "direccionTexto": "Atencion y clases 100% en linea a traves de Google Meet."
+  },
+  "portada": {
+    "insignia": "Cursos en linea para convocatorias reales",
+    "titulo": "Preparate con ritmo para tu siguiente meta",
+    "descripcion": "Clases en linea, energia de grupo y una ruta clara para llegar con mejor nivel a tu examen o cerrar tu etapa de preparatoria.",
+    "ctaPrincipal": {
+      "etiqueta": "Solicitar informes por WhatsApp",
+      "mensaje": "Hola, quiero informes sobre los cursos activos de Mate Diamante."
+    },
+    "ctaSecundario": {
+      "etiqueta": "Ver cursos de temporada",
+      "enlace": "/cursos/"
+    },
+    "estadisticas": [
+      {
+        "valor": "100% en linea",
+        "etiqueta": "Clases por Google Meet"
+      },
+      {
+        "valor": "2 rutas",
+        "etiqueta": "Ingreso universitario y preparatoria"
+      },
+      {
+        "valor": "Atencion directa",
+        "etiqueta": "Seguimiento rapido por WhatsApp"
+      }
+    ]
+  },
+  "rutasAcademicas": [
+    {
+      "clave": "ingreso-universitario",
+      "titulo": "Ingreso universitario",
+      "descripcion": "Cursos orientados a convocatorias como UNAM, IPN y UAM, con enfoque practico y ritmo intensivo."
+    },
+    {
+      "clave": "conclusion-preparatoria",
+      "titulo": "Conclusion de preparatoria",
+      "descripcion": "Acompanamiento para alumnos que necesitan concluir la preparatoria con estructura, constancia y claridad."
+    }
+  ],
+  "metodologia": {
+    "titulo": "Una metodologia hecha para estudiar sin perder impulso",
+    "descripcion": "El proceso combina clases en vivo, organizacion por objetivos, ejercicios guiados y acompanamiento claro para que el alumno avance con enfoque y mejor ritmo.",
+    "pasos": [
+      {
+        "titulo": "Diagnostico del objetivo",
+        "descripcion": "Se identifica la convocatoria o meta academica y se recomienda la ruta de trabajo adecuada."
+      },
+      {
+        "titulo": "Clases en linea por Google Meet",
+        "descripcion": "Las sesiones ocurren en vivo con explicacion estructurada y espacio para resolver dudas."
+      },
+      {
+        "titulo": "Practica enfocada",
+        "descripcion": "Se trabaja con ejercicios y temas clave para que el tiempo de estudio se aproveche al maximo."
+      },
+      {
+        "titulo": "Seguimiento cercano",
+        "descripcion": "El alumno recibe indicaciones claras para saber como continuar y que reforzar."
+      }
+    ]
+  },
+  "nosotros": {
+    "titulo": "Profesores que combinan claridad, ritmo y cercania",
+    "descripcion": "Mate Diamante trabaja como un grupo de docentes que entiende la presion de una convocatoria importante. La propuesta del sitio pone el foco en explicar con claridad, organizar el estudio y acompanar al alumno durante el proceso sin hacerlo pesado.",
+    "pilares": [
+      "Explicacion clara y aterrizada",
+      "Acompanamiento cercano durante el proceso",
+      "Cursos pensados para convocatorias reales",
+      "Operacion simple para entrar rapido a clases"
+    ]
+  },
+  "pruebasConfianza": {
+    "titulo": "Confianza construida desde la claridad",
+    "descripcion": "Mientras se incorporan testimonios y resultados documentados, la confianza se comunica a traves de la metodologia, la cercania y la estructura del proceso.",
+    "elementos": [
+      "Atencion directa por WhatsApp",
+      "Clases en vivo por Google Meet",
+      "Informacion transparente sobre fechas, horarios y costos",
+      "Oferta organizada por temporada y objetivo academico"
+    ]
+  },
+  "cursos": [
+    {
+      "id": "uam-segunda-vuelta-intensivo",
+      "titulo": "Curso intensivo UAM - segunda vuelta",
+      "ruta": "ingreso-universitario",
+      "examenOMeta": "Ingreso a la UAM",
+      "temporada": "Primavera 2026",
+      "estado": "activo",
+      "fechaInicio": "2026-05-06",
+      "fechaFin": "2026-06-22",
+      "resumenHorario": "Lunes, miercoles y viernes de 19:00 a 21:00",
+      "modalidad": "Clases en linea por Google Meet",
+      "precioTexto": "$1,850 MXN",
+      "resumen": "Programa intensivo para reforzar temas clave y llegar con mejor ritmo a la segunda vuelta de la UAM.",
+      "destacado": true,
+      "etiquetaCta": "Quiero informes del curso UAM",
+      "mensajeWhatsApp": "Hola, quiero informes del curso intensivo para la segunda vuelta de la UAM."
+    },
+    {
+      "id": "ingreso-unam-regular",
+      "titulo": "Curso de ingreso UNAM",
+      "ruta": "ingreso-universitario",
+      "examenOMeta": "Ingreso a la UNAM",
+      "temporada": "Verano 2026",
+      "estado": "proximo",
+      "fechaInicio": "2026-07-01",
+      "fechaFin": "2026-09-05",
+      "resumenHorario": "Martes y jueves de 18:30 a 21:00",
+      "modalidad": "Clases en linea por Google Meet",
+      "precioTexto": "$2,400 MXN",
+      "resumen": "Curso de preparacion para la convocatoria principal de la UNAM con trabajo constante por areas.",
+      "destacado": true,
+      "etiquetaCta": "Avisenme cuando abra UNAM",
+      "mensajeWhatsApp": "Hola, quiero apartar mi lugar o recibir informes del proximo curso de ingreso a la UNAM."
+    },
+    {
+      "id": "ingreso-ipn-regular",
+      "titulo": "Curso de ingreso IPN",
+      "ruta": "ingreso-universitario",
+      "examenOMeta": "Ingreso al IPN",
+      "temporada": "Verano 2026",
+      "estado": "proximo",
+      "fechaInicio": "2026-07-03",
+      "fechaFin": "2026-09-05",
+      "resumenHorario": "Sabados de 9:00 a 13:00",
+      "modalidad": "Clases en linea por Google Meet",
+      "precioTexto": "$2,200 MXN",
+      "resumen": "Ruta de preparacion con enfasis en organizacion, practica y repaso de temas de mayor peso en el IPN.",
+      "destacado": false,
+      "etiquetaCta": "Quiero informes del IPN",
+      "mensajeWhatsApp": "Hola, quiero recibir informes del curso de ingreso al IPN."
+    },
+    {
+      "id": "conclusion-preparatoria-flexible",
+      "titulo": "Ruta de conclusion de preparatoria",
+      "ruta": "conclusion-preparatoria",
+      "examenOMeta": "Conclusion de preparatoria",
+      "temporada": "Inscripcion continua",
+      "estado": "activo",
+      "fechaInicio": "2026-05-01",
+      "fechaFin": "2026-08-30",
+      "resumenHorario": "Horarios por confirmar segun grupo",
+      "modalidad": "Clases en linea por Google Meet",
+      "precioTexto": "Informes por WhatsApp",
+      "resumen": "Acompanamiento para alumnos que buscan concluir la preparatoria con una ruta ordenada y seguimiento cercano.",
+      "destacado": true,
+      "etiquetaCta": "Quiero concluir la preparatoria",
+      "mensajeWhatsApp": "Hola, quiero informes para concluir la preparatoria con Mate Diamante."
+    }
+  ],
+  "preguntasFrecuentes": [
+    {
+      "pregunta": "Como me inscribo a un curso?",
+      "respuesta": "Puedes escribir por WhatsApp para recibir informacion del curso, confirmar disponibilidad y conocer el procedimiento de pago e ingreso."
+    },
+    {
+      "pregunta": "Las clases son presenciales o en linea?",
+      "respuesta": "La operacion actual esta pensada para clases 100% en linea a traves de Google Meet."
+    },
+    {
+      "pregunta": "Que pasa despues de pagar?",
+      "respuesta": "El equipo comparte indicaciones de acceso, fechas y el enlace correspondiente para iniciar las clases."
+    },
+    {
+      "pregunta": "Puedo preguntar por una convocatoria especifica?",
+      "respuesta": "Si. Puedes escribir por WhatsApp y explicar para que universidad, examen o etapa academica necesitas prepararte."
+    }
+  ],
+  "apoyoAlumnos": {
+    "titulo": "Informacion general para alumnos inscritos",
+    "descripcion": "Esta seccion ofrece una referencia publica y sencilla para saber como entrar a clases y que esperar antes de cada sesion.",
+    "avisos": [
+      "Confirma por WhatsApp que recibiste el enlace vigente de Google Meet.",
+      "Entra con al menos 10 minutos de anticipacion a tu primera clase.",
+      "Ten a la mano libreta, calculadora si aplica y materiales indicados por el profesor."
+    ],
+    "pasosAcceso": [
+      "Realiza tu pago y confirma tu inscripcion con el equipo.",
+      "Recibe por WhatsApp el enlace de clase y las indicaciones previas.",
+      "Ingresa a Google Meet en el horario asignado.",
+      "Si surge algun problema de acceso, escribe de inmediato al contacto oficial."
+    ],
+    "calendarioGeneral": "Los horarios definitivos y avisos especiales se confirman por WhatsApp segun el curso o grupo."
+  },
+  "seo": {
+    "tituloBase": "Mate Diamante",
+    "descripcionBase": "Cursos en linea para ingreso universitario y conclusion de preparatoria con clases por Google Meet y atencion directa por WhatsApp.",
+    "imagenCompartir": "/marca/logotipo-mate-diamante.svg"
+  },
+  "medicion": {
+    "idGoogleTagManager": "",
+    "idPixelMeta": "",
+    "habilitarSeguimiento": true
+  }
+}

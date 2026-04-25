@@ -1,0 +1,44 @@
+---
+import { conRutaBase, obtenerConfiguracionSitio, obtenerEnlaceWhatsApp } from "@utilidades/sitio";
+
+const { marca, contacto } = obtenerConfiguracionSitio();
+---
+
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie__rejilla">
+      <section class="pie__marca">
+        <img src={conRutaBase(marca.logotipo)} alt={`Logotipo de ${marca.nombre}`} />
+        <p>{marca.descripcionCorta}</p>
+        <div class="nota texto-pequeno">{marca.avisoLogotipo}</div>
+      </section>
+
+      <section>
+        <h3>Explora</h3>
+        <ul>
+          <li><a href={conRutaBase("/cursos/")}>Cursos</a></li>
+          <li><a href={conRutaBase("/metodologia/")}>Metodologia</a></li>
+          <li><a href={conRutaBase("/nosotros/")}>Nosotros</a></li>
+          <li><a href={conRutaBase("/preguntas-frecuentes/")}>Preguntas frecuentes</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Contacto</h3>
+        <ul>
+          <li><a href={obtenerEnlaceWhatsApp(contacto.mensajeGeneralWhatsApp)} target="_blank" rel="noreferrer">WhatsApp: {contacto.telefonoVisible}</a></li>
+          <li><a href={`mailto:${contacto.correo}`}>{contacto.correo}</a></li>
+          <li><p>{contacto.horarioAtencion}</p></li>
+          <li><p>{contacto.direccionTexto}</p></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="pie__cierre">
+      <p>
+        {new Date().getFullYear()} Mate Diamante. Sitio comercial para informar cursos, captar
+        prospectos y orientar el acceso a clases.
+      </p>
+    </div>
+  </div>
+</footer>

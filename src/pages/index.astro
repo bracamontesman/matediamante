@@ -1,0 +1,160 @@
+---
+import BotonWhatsApp from "@componentes/BotonWhatsApp.astro";
+import TarjetaCurso from "@componentes/TarjetaCurso.astro";
+import DisenoBase from "@disenos/DisenoBase.astro";
+import {
+  conRutaBase,
+  obtenerConfiguracionSitio,
+  obtenerCursosDestacados
+} from "@utilidades/sitio";
+
+const sitio = obtenerConfiguracionSitio();
+const cursosDestacados = obtenerCursosDestacados();
+---
+
+<DisenoBase rutaActual="/" descripcion={sitio.seo.descripcionBase}>
+  <section class="hero">
+    <div class="contenedor hero__interior">
+      <div class="bloque-titulo">
+        <span class="bloque-titulo__etiqueta">{sitio.portada.insignia}</span>
+        <h1>{sitio.portada.titulo}</h1>
+        <p>{sitio.portada.descripcion}</p>
+        <div class="botones" style="margin-top: 1.5rem;">
+          <BotonWhatsApp
+            mensaje={sitio.portada.ctaPrincipal.mensaje!}
+            etiqueta={sitio.portada.ctaPrincipal.etiqueta}
+            evento="clic_whatsapp_portada"
+          />
+          <a class="boton-secundario" href={conRutaBase(sitio.portada.ctaSecundario.enlace!)}>
+            {sitio.portada.ctaSecundario.etiqueta}
+          </a>
+        </div>
+      </div>
+
+      <div class="hero__estadisticas">
+        {sitio.portada.estadisticas.map((estadistica) => (
+          <article class="hero__estadistica">
+            <strong>{estadistica.valor}</strong>
+            <span>{estadistica.etiqueta}</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion-destacada">
+    <div class="contenedor">
+      <div class="franja rejilla rejilla-3">
+        {sitio.rutasAcademicas.map((ruta) => (
+          <article class="apilado">
+            <span class="bloque-titulo__etiqueta">{ruta.titulo}</span>
+            <h2 style="margin: 0; font-size: 1.4rem;">{ruta.titulo}</h2>
+            <p class="texto-suave" style="margin: 0;">{ruta.descripcion}</p>
+          </article>
+        ))}
+        <article class="apilado">
+          <span class="bloque-titulo__etiqueta">Proceso simple</span>
+          <h2 style="margin: 0; font-size: 1.4rem;">Te informas, te inscribes y entras a clase</h2>
+          <p class="texto-suave" style="margin: 0;">
+            La web informa con claridad y el cierre ocurre por WhatsApp para que el ingreso sea rapido y directo.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="bloque-titulo">
+        <span class="bloque-titulo__etiqueta">Cursos activos y proximos</span>
+        <h2>Oferta organizada por temporada</h2>
+        <p>
+          El sitio esta preparado para mostrar convocatorias reales, abrir inscripciones y retirar
+          grupos cerrados sin cambiar el codigo de las paginas.
+        </p>
+      </div>
+
+      <div class="rejilla rejilla-2">
+        {cursosDestacados.map((curso) => (
+          <TarjetaCurso
+            curso={curso}
+            ruta={sitio.rutasAcademicas.find((ruta) => ruta.clave === curso.ruta)}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor rejilla rejilla-2">
+      <article class="tarjeta">
+        <div class="bloque-titulo">
+          <span class="bloque-titulo__etiqueta">Metodologia</span>
+          <h2>{sitio.metodologia.titulo}</h2>
+          <p>{sitio.metodologia.descripcion}</p>
+        </div>
+
+        <div class="lista-pasos">
+          {sitio.metodologia.pasos.map((paso, indice) => (
+            <div class="item-con-icono">
+              <span>{indice + 1}</span>
+              <div>
+                <strong>{paso.titulo}</strong>
+                <p class="texto-suave" style="margin: 0.2rem 0 0;">{paso.descripcion}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </article>
+
+      <article class="llamada">
+        <h2>{sitio.pruebasConfianza.titulo}</h2>
+        <p>{sitio.pruebasConfianza.descripcion}</p>
+        <ul class="lista-limpia lista-pilares">
+          {sitio.pruebasConfianza.elementos.map((elemento) => (
+            <li class="item-con-icono">
+              <span>+</span>
+              <div>{elemento}</div>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor rejilla rejilla-2">
+      <article class="tarjeta">
+        <div class="bloque-titulo">
+          <span class="bloque-titulo__etiqueta">Nosotros</span>
+          <h2>{sitio.nosotros.titulo}</h2>
+          <p>{sitio.nosotros.descripcion}</p>
+        </div>
+        <ul class="lista-limpia lista-pilares">
+          {sitio.nosotros.pilares.map((pilar) => (
+            <li class="item-con-icono">
+              <span>•</span>
+              <div>{pilar}</div>
+            </li>
+          ))}
+        </ul>
+      </article>
+
+      <article class="llamada">
+        <h3>Resuelve dudas y entra en contacto rapido</h3>
+        <p>
+          Si quieres confirmar que curso te conviene, conocer horarios o preguntar por una
+          convocatoria, el canal principal esta pensado para responderte por WhatsApp.
+        </p>
+        <div class="botones">
+          <BotonWhatsApp
+            mensaje={sitio.contacto.mensajeGeneralWhatsApp}
+            etiqueta="Hablar con Mate Diamante"
+            evento="clic_whatsapp_llamada_inicio"
+          />
+          <a class="boton-secundario" href={conRutaBase("/contacto/")}>Ir a contacto</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</DisenoBase>

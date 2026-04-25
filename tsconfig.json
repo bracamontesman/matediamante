@@ -1,0 +1,14 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@componentes/*": ["src/componentes/*"],
+      "@datos/*": ["src/datos/*"],
+      "@disenos/*": ["src/disenos/*"],
+      "@estilos/*": ["src/estilos/*"],
+      "@utilidades/*": ["src/utilidades/*"]
+    },
+    "resolveJsonModule": true
+  }
+}

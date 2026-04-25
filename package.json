@@ -1,0 +1,22 @@
+{
+  "name": "mate-diamante",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "inicio": "astro dev",
+    "build": "astro build",
+    "construir": "astro build",
+    "preview": "astro preview",
+    "vista-previa": "astro preview",
+    "check": "astro check",
+    "verificar": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/sitemap": "^3.6.0",
+    "astro": "^5.2.0",
+    "typescript": "^5.8.0"
+  }
+}

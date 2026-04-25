@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 120" role="img" aria-labelledby="titulo descripcion">
+  <title id="titulo">Mate Diamante</title>
+  <desc id="descripcion">Logotipo temporal para Mate Diamante</desc>
+  <defs>
+    <linearGradient id="degradadoDiamante" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#14b8a6" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+  </defs>
+  <rect width="460" height="120" rx="28" fill="#071927" />
+  <g transform="translate(28 20)">
+    <path
+      d="M40 0 78 18 63 72 17 80 2 18 40 0Z"
+      fill="none"
+      stroke="url(#degradadoDiamante)"
+      stroke-width="4"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M20 24h9l11 24 11-24h9v34h-7V35L44 53h-7L27 35v23h-7V24Z"
+      fill="#f8fafc"
+    />
+  </g>
+  <g fill="#f8fafc">
+    <text x="132" y="50" font-family="Sora, Arial, sans-serif" font-size="34" font-weight="700">
+      Mate Diamante
+    </text>
+    <text x="132" y="80" font-family="Manrope, Arial, sans-serif" font-size="16" opacity="0.85">
+      Preparacion academica para admision universitaria y conclusion de preparatoria
+    </text>
+  </g>
+</svg>

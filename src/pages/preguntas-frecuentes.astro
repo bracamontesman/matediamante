@@ -1,0 +1,51 @@
+---
+import BotonWhatsApp from "@componentes/BotonWhatsApp.astro";
+import DisenoBase from "@disenos/DisenoBase.astro";
+import { obtenerConfiguracionSitio } from "@utilidades/sitio";
+
+const sitio = obtenerConfiguracionSitio();
+---
+
+<DisenoBase
+  titulo="Preguntas frecuentes"
+  descripcion="Resuelve dudas sobre inscripcion, clases en linea y acceso a cursos de Mate Diamante."
+  rutaActual="/preguntas-frecuentes/"
+>
+  <section class="pagina-encabezado">
+    <div class="contenedor bloque-titulo">
+      <span class="bloque-titulo__etiqueta">Dudas comunes</span>
+      <h1>Preguntas frecuentes antes de inscribirte</h1>
+      <p>
+        Esta pagina ayuda a responder lo esencial y reduce friccion antes de escribir al equipo.
+      </p>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor rejilla">
+      {sitio.preguntasFrecuentes.map((item) => (
+        <details class="tarjeta">
+          <summary style="cursor: pointer; font-weight: 800; font-size: 1.05rem;">{item.pregunta}</summary>
+          <p class="texto-suave" style="margin: 1rem 0 0;">{item.respuesta}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="seccion-compacta">
+    <div class="contenedor">
+      <div class="llamada">
+        <h3>Tu duda no aparece aqui?</h3>
+        <p>
+          Si necesitas confirmar fechas, pagos, horarios o acceso a Google Meet, te respondemos por
+          WhatsApp.
+        </p>
+        <BotonWhatsApp
+          mensaje="Hola, tengo una duda que no encontre en la seccion de preguntas frecuentes."
+          etiqueta="Resolver mi duda"
+          evento="clic_whatsapp_preguntas_frecuentes"
+        />
+      </div>
+    </div>
+  </section>
+</DisenoBase>

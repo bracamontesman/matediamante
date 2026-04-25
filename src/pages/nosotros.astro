@@ -1,0 +1,71 @@
+---
+import BotonWhatsApp from "@componentes/BotonWhatsApp.astro";
+import DisenoBase from "@disenos/DisenoBase.astro";
+import { obtenerConfiguracionSitio } from "@utilidades/sitio";
+
+const sitio = obtenerConfiguracionSitio();
+---
+
+<DisenoBase
+  titulo="Nosotros"
+  descripcion="Conoce el enfoque academico y humano de Mate Diamante."
+  rutaActual="/nosotros/"
+>
+  <section class="pagina-encabezado">
+    <div class="contenedor bloque-titulo">
+      <span class="bloque-titulo__etiqueta">Quienes somos</span>
+      <h1>{sitio.nosotros.titulo}</h1>
+      <p>{sitio.nosotros.descripcion}</p>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor rejilla rejilla-2">
+      <article class="tarjeta">
+        <h2 style="font-family: Space Grotesk, sans-serif; margin-top: 0;">Lo que sostiene la propuesta</h2>
+        <ul class="lista-limpia lista-pilares">
+          {sitio.nosotros.pilares.map((pilar) => (
+            <li class="item-con-icono">
+              <span>•</span>
+              <div>{pilar}</div>
+            </li>
+          ))}
+        </ul>
+      </article>
+
+      <article class="llamada">
+        <h2>Una imagen mas viva, agil y cercana</h2>
+        <p>
+          Esta primera version del sitio prioriza color, movimiento sutil y mensajes claros para que
+          la experiencia se sienta actual, fresca y confiable desde la primera visita.
+        </p>
+        <div class="panel-destacado">
+          <h3>Direccion visual de la v1</h3>
+          <ul class="lista-limpia apilado">
+            <li>Contraste alto con energia visual, no rigidez</li>
+            <li>Acentos turquesa, azul electrico y coral</li>
+            <li>Tipografia con aire tecnologico y lectura comoda</li>
+            <li>CTA visibles que invitan a escribir de inmediato</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="seccion-compacta">
+    <div class="contenedor">
+      <div class="llamada">
+        <h3>Listos para recibir nuevas generaciones</h3>
+        <p>
+          Si estas evaluando opciones para tu siguiente paso academico, puedes escribirnos y
+          contarnos tu caso.
+        </p>
+        <BotonWhatsApp
+          mensaje="Hola, quiero conocer mas sobre Mate Diamante y sus cursos."
+          etiqueta="Escribir ahora"
+          evento="clic_whatsapp_nosotros"
+        />
+      </div>
+    </div>
+  </section>
+</DisenoBase>

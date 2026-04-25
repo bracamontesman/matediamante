@@ -1,0 +1,59 @@
+---
+import BotonWhatsApp from "@componentes/BotonWhatsApp.astro";
+import { formatearFecha, obtenerEtiquetaEstado } from "@utilidades/sitio";
+import type { Curso, RutaAcademica } from "@utilidades/tipos";
+
+interface Propiedades {
+  curso: Curso;
+  ruta?: RutaAcademica;
+}
+
+const { curso, ruta } = Astro.props as Propiedades;
+---
+
+<article class="tarjeta tarjeta-curso" data-ruta={curso.ruta} data-estado={curso.estado}>
+  <div class="tarjeta-curso__cabecera">
+    <span class="insignia-estado" data-estado={curso.estado}>{obtenerEtiquetaEstado(curso.estado)}</span>
+    {ruta && <span class="insignia-ruta">{ruta.titulo}</span>}
+  </div>
+
+  <div class="apilado">
+    <h3>{curso.titulo}</h3>
+    <p class="texto-suave">{curso.resumen}</p>
+  </div>
+
+  <dl class="tarjeta-curso__detalles">
+    <div>
+      <dt>Objetivo</dt>
+      <dd>{curso.examenOMeta}</dd>
+    </div>
+    <div>
+      <dt>Temporada</dt>
+      <dd>{curso.temporada}</dd>
+    </div>
+    <div>
+      <dt>Fechas</dt>
+      <dd>{formatearFecha(curso.fechaInicio)} al {formatearFecha(curso.fechaFin)}</dd>
+    </div>
+    <div>
+      <dt>Horario</dt>
+      <dd>{curso.resumenHorario}</dd>
+    </div>
+    <div>
+      <dt>Modalidad</dt>
+      <dd>{curso.modalidad}</dd>
+    </div>
+    <div>
+      <dt>Inversion</dt>
+      <dd>{curso.precioTexto}</dd>
+    </div>
+  </dl>
+
+  <div class="tarjeta-curso__acciones">
+    <BotonWhatsApp
+      mensaje={curso.mensajeWhatsApp}
+      etiqueta={curso.etiquetaCta}
+      evento={`clic_whatsapp_curso_${curso.id}`}
+    />
+  </div>
+</article>

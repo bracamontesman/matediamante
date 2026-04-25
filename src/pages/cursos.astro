@@ -1,0 +1,88 @@
+---
+import BotonWhatsApp from "@componentes/BotonWhatsApp.astro";
+import TarjetaCurso from "@componentes/TarjetaCurso.astro";
+import DisenoBase from "@disenos/DisenoBase.astro";
+import { obtenerConfiguracionSitio, obtenerCursosVisibles } from "@utilidades/sitio";
+
+const sitio = obtenerConfiguracionSitio();
+const cursos = obtenerCursosVisibles();
+---
+
+<DisenoBase
+  titulo="Cursos"
+  descripcion="Cursos de temporada para ingreso universitario y conclusion de preparatoria en Mate Diamante."
+  rutaActual="/cursos/"
+>
+  <section class="pagina-encabezado">
+    <div class="contenedor bloque-titulo">
+      <span class="bloque-titulo__etiqueta">Catalogo estacional</span>
+      <h1>Cursos publicados desde un solo archivo de contenido</h1>
+      <p>
+        La oferta puede crecer, cambiar por convocatoria o retirarse por temporada sin redisenar el
+        sitio. Aqui se muestran solo los cursos visibles.
+      </p>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="filtros-cursos" data-filtros-cursos>
+        <button type="button" aria-pressed="true" data-filtro="todos">Todos</button>
+        {sitio.rutasAcademicas.map((ruta) => (
+          <button type="button" aria-pressed="false" data-filtro={ruta.clave}>
+            {ruta.titulo}
+          </button>
+        ))}
+      </div>
+
+      <div class="rejilla rejilla-2" data-lista-cursos>
+        {cursos.map((curso) => (
+          <TarjetaCurso
+            curso={curso}
+            ruta={sitio.rutasAcademicas.find((ruta) => ruta.clave === curso.ruta)}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion-compacta">
+    <div class="contenedor">
+      <div class="llamada">
+        <h2>No encuentras tu convocatoria?</h2>
+        <p>
+          Escribenos y cuentanos para que examen o etapa academica te estas preparando. El equipo
+          puede orientarte aunque el siguiente grupo aun no aparezca publicado.
+        </p>
+        <BotonWhatsApp
+          mensaje="Hola, quiero preguntar por una convocatoria o curso que no veo publicado en el sitio."
+          etiqueta="Preguntar por otro curso"
+          evento="clic_whatsapp_convocatoria_no_publicada"
+        />
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    {`
+      const grupoFiltros = document.querySelector("[data-filtros-cursos]");
+      const tarjetas = Array.from(document.querySelectorAll("[data-lista-cursos] [data-ruta]"));
+
+      grupoFiltros?.addEventListener("click", (evento) => {
+        const objetivo = evento.target;
+        if (!(objetivo instanceof HTMLButtonElement)) return;
+
+        const filtro = objetivo.dataset.filtro || "todos";
+
+        grupoFiltros.querySelectorAll("button").forEach((boton) => {
+          boton.setAttribute("aria-pressed", String(boton === objetivo));
+        });
+
+        tarjetas.forEach((tarjeta) => {
+          const coincide = filtro === "todos" || tarjeta.dataset.ruta === filtro;
+          tarjeta.classList.toggle("curso-oculto", !coincide);
+        });
+      });
+    `}
+  </script>
+</DisenoBase>
