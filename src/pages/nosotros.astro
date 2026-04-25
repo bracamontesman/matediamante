@@ -13,7 +13,7 @@ const sitio = obtenerConfiguracionSitio();
 >
   <section class="pagina-encabezado">
     <div class="contenedor bloque-titulo">
-      <span class="bloque-titulo__etiqueta">Quienes somos</span>
+      <span class="bloque-titulo__etiqueta">Quiénes somos</span>
       <h1>{sitio.nosotros.titulo}</h1>
       <p>{sitio.nosotros.descripcion}</p>
     </div>
@@ -22,7 +22,7 @@ const sitio = obtenerConfiguracionSitio();
   <section class="seccion">
     <div class="contenedor rejilla rejilla-2">
       <article class="tarjeta">
-        <h2 style="font-family: Space Grotesk, sans-serif; margin-top: 0;">Lo que sostiene la propuesta</h2>
+        <h2 style="font-family: Space Grotesk, sans-serif; margin-top: 0;">Estos son los pilares de nuestros cursos:</h2>
         <ul class="lista-limpia lista-pilares">
           {sitio.nosotros.pilares.map((pilar) => (
             <li class="item-con-icono">
@@ -34,18 +34,17 @@ const sitio = obtenerConfiguracionSitio();
       </article>
 
       <article class="llamada">
-        <h2>Una imagen mas viva, agil y cercana</h2>
+        <h2>Descubre lo sencillo que es inscribirte a Mate Diamante</h2>
         <p>
-          Esta primera version del sitio prioriza color, movimiento sutil y mensajes claros para que
-          la experiencia se sienta actual, fresca y confiable desde la primera visita.
+          Puedes usar nuestro canal principal de contacto a través de WhatsApp para solicitar información, resolver tus dudas y recibir acompañamiento en tu proceso de inscripción a nuestros cursos.
         </p>
         <div class="panel-destacado">
-          <h3>Direccion visual de la v1</h3>
+          <h3>Parte de lo que ofrecemos</h3>
           <ul class="lista-limpia apilado">
-            <li>Contraste alto con energia visual, no rigidez</li>
-            <li>Acentos turquesa, azul electrico y coral</li>
-            <li>Tipografia con aire tecnologico y lectura comoda</li>
-            <li>CTA visibles que invitan a escribir de inmediato</li>
+            <li>Profesores certificados y experimentados</li>
+            <li>Materiales de estudio y apoyo en cada materia</li>
+            <li>Programas enfocados en el examen específico de cada universidad</li>
+            <li>Metodología revisada y aterrizada para facilitar el aprendizaje</li>
           </ul>
         </div>
       </article>
@@ -55,9 +54,9 @@ const sitio = obtenerConfiguracionSitio();
   <section class="seccion-compacta">
     <div class="contenedor">
       <div class="llamada">
-        <h3>Listos para recibir nuevas generaciones</h3>
+        <h3>En Mate Diamante estamos listos para recibir nuevas generaciones</h3>
         <p>
-          Si estas evaluando opciones para tu siguiente paso academico, puedes escribirnos y
+          Si estas evaluando opciones para tu siguiente paso académico, puedes escribirnos y
           contarnos tu caso.
         </p>
         <BotonWhatsApp

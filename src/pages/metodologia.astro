@@ -13,7 +13,7 @@ const sitio = obtenerConfiguracionSitio();
 >
   <section class="pagina-encabezado">
     <div class="contenedor bloque-titulo">
-      <span class="bloque-titulo__etiqueta">Como trabajamos</span>
+      <span class="bloque-titulo__etiqueta">Cómo trabajamos</span>
       <h1>{sitio.metodologia.titulo}</h1>
       <p>{sitio.metodologia.descripcion}</p>
     </div>
@@ -22,7 +22,7 @@ const sitio = obtenerConfiguracionSitio();
   <section class="seccion">
     <div class="contenedor rejilla rejilla-2">
       <article class="tarjeta">
-        <h2 style="font-family: Space Grotesk, sans-serif; margin-top: 0;">Ruta de acompanamiento</h2>
+        <h2 style="font-family: Space Grotesk, sans-serif; margin-top: 0;">Ruta de acompañamiento</h2>
         <div class="lista-pasos">
           {sitio.metodologia.pasos.map((paso, indice) => (
             <div class="item-con-icono">
@@ -37,18 +37,17 @@ const sitio = obtenerConfiguracionSitio();
       </article>
 
       <article class="llamada">
-        <h2>Operacion simple para enfocarse en estudiar</h2>
+        <h2>Operación simple para enfocarse en estudiar</h2>
         <p>
-          El proceso comercial y el acceso a clases estan pensados para no distraer al alumno: se
-          informa, se inscribe y recibe por WhatsApp todo lo necesario para entrar a Google Meet.
+          Nos enfocamos en el material de apoyo, en métodos sencillos y novedosos así como en simplificar tu proceso de inscripción con nosotros. Solicita información a través de nuestro WhatsApp.
         </p>
         <div class="panel-destacado">
-          <h3>Lo que siempre debe quedar claro</h3>
+          <h3>Nuestro método contempla</h3>
           <ul class="lista-limpia apilado">
-            <li>Objetivo academico del curso</li>
-            <li>Fechas y horario del grupo</li>
-            <li>Forma de ingreso a Google Meet</li>
-            <li>Canal rapido de soporte por WhatsApp</li>
+            <li>Localizar el objetivo académico del curso que tomarás</li>
+            <li>Establecer fechas y horario del grupo accesibles</li>
+            <li>Clases en línea con Google Meat para facilitar el acceso</li>
+            <li>Canal rápido de soporte e información por WhatsApp</li>
           </ul>
         </div>
       </article>
@@ -58,13 +57,12 @@ const sitio = obtenerConfiguracionSitio();
   <section class="seccion-compacta">
     <div class="contenedor">
       <div class="llamada">
-        <h3>Quieres validar que curso te conviene?</h3>
+        <h3>¿Quieres validar qué curso te conviene?</h3>
         <p>
-          Una conversacion breve por WhatsApp basta para orientarte segun universidad, convocatoria
-          o necesidad de concluir la preparatoria.
+          Una conversación breve por WhatsApp basta para orientarte según la universidad que te interesa, la convocatoria para la que deseas concursar o tu objetivo de concluir la preparatoria.
         </p>
         <BotonWhatsApp
-          mensaje="Hola, quiero saber que curso o ruta de preparacion me conviene."
+          mensaje="Hola, quiero saber que curso o ruta de preparación me conviene."
           etiqueta="Orientarme por WhatsApp"
           evento="clic_whatsapp_metodologia"
         />
