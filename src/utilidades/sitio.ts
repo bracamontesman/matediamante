@@ -69,9 +69,11 @@ export function obtenerEtiquetaEstado(estado: EstadoCurso): string {
 }
 
 export function formatearFecha(fechaIso: string): string {
+  const fecha = new Date(`${fechaIso}T12:00:00`);
+  if (isNaN(fecha.getTime())) return fechaIso;
   return new Intl.DateTimeFormat("es-MX", {
     day: "numeric",
     month: "long",
-    year: "numeric"
-  }).format(new Date(`${fechaIso}T12:00:00`));
+    year: "numeric",
+  }).format(fecha);
 }
