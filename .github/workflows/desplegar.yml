@@ -28,7 +28,7 @@ jobs:
         with:
           path: .
         env:
-          URL_SITIO: ${{ vars.URL_SITIO || 'https://www.matediamante.com' }}
+          URL_SITIO: ${{ vars.URL_SITIO || 'https://matediamante.com' }}
 
   desplegar:
     needs: construir

@@ -84,7 +84,7 @@ El repositorio incluye el flujo `.github/workflows/desplegar.yml`, basado en la 
 
 Variables opcionales recomendadas:
 
-- `URL_SITIO`: dominio canonico del proyecto. El valor por defecto actual es `https://www.matediamante.com`
+- `URL_SITIO`: dominio canonico del proyecto. El valor por defecto actual es `https://matediamante.com`
 - `BASE_PATH`: ruta base en caso de publicar en `usuario.github.io/repositorio`
 
 Si no se define `BASE_PATH`, el proyecto usara `/` para dominio propio y solo intentara inferir la ruta del repositorio cuando el sitio se publique bajo una URL `github.io`.
