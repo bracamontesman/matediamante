@@ -2,13 +2,19 @@
 import { conRutaBase, obtenerConfiguracionSitio, obtenerEnlaceWhatsApp } from "@utilidades/sitio";
 
 const { marca, contacto } = obtenerConfiguracionSitio();
+const rutaLogotipoPng = conRutaBase("/marca/logotipo-circular.png");
+const rutaLogotipoRespaldo = conRutaBase(marca.logotipo);
 ---
 
 <footer class="pie">
   <div class="contenedor">
     <div class="pie__rejilla">
       <section class="pie__marca">
-        <img src={conRutaBase(marca.logotipo)} alt={`Logotipo de ${marca.nombre}`} />
+        <img
+          src={rutaLogotipoPng}
+          alt={`Logotipo de ${marca.nombre}`}
+          onerror={`this.onerror=null;this.src='${rutaLogotipoRespaldo}'`}
+        />
         <p>{marca.descripcionCorta}</p>
         <div class="nota texto-pequeno">{marca.avisoLogotipo}</div>
       </section>

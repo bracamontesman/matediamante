@@ -7,6 +7,8 @@ interface Propiedades {
 
 const { rutaActual } = Astro.props as Propiedades;
 const { marca, contacto } = obtenerConfiguracionSitio();
+const rutaLogotipoPng = conRutaBase("/marca/logotipo-circular.png");
+const rutaLogotipoRespaldo = conRutaBase(marca.logotipo);
 
 const enlaces = [
   { href: "/", etiqueta: "Inicio" },
@@ -22,7 +24,11 @@ const enlaces = [
 <header class="encabezado">
   <div class="contenedor encabezado__interior">
     <a class="encabezado__marca" href={conRutaBase("/")}>
-      <img src={conRutaBase(marca.logotipo)} alt={`Logotipo de ${marca.nombre}`} />
+      <img
+        src={rutaLogotipoPng}
+        alt={`Logotipo de ${marca.nombre}`}
+        onerror={`this.onerror=null;this.src='${rutaLogotipoRespaldo}'`}
+      />
       <div>
         <strong>{marca.nombre}</strong>
         <span>{marca.eslogan}</span>

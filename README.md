@@ -70,6 +70,15 @@ Abre `src/datos/sitio.json`. Desde ese archivo puedes actualizar:
 - configuracion SEO
 - configuracion de medicion y campanas
 
+## Branding y favicon
+
+El proyecto ya intenta usar estos archivos si existen:
+
+- `public/marca/logotipo-circular.png`
+- `public/favicon.ico`
+
+Mientras esos archivos no esten presentes, el sitio conserva como respaldo el logotipo SVG actual.
+
 ## Flujo recomendado para actualizar cursos
 
 1. Localiza el arreglo `cursos`.

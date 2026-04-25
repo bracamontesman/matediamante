@@ -19,6 +19,8 @@ const descripcionDocumento = descripcion ?? seo.descripcionBase;
 const imagenCompartir = new URL(conRutaBase(seo.imagenCompartir), Astro.site).toString();
 const scriptsMedicion = obtenerScriptsMedicion();
 const enlaceWhatsAppFlotante = obtenerEnlaceWhatsApp(contacto.mensajeGeneralWhatsApp);
+const rutaFaviconIco = conRutaBase("/favicon.ico");
+const rutaFaviconSvg = conRutaBase("/favicon.svg");
 ---
 
 <!doctype html>
@@ -30,7 +32,8 @@ const enlaceWhatsAppFlotante = obtenerEnlaceWhatsApp(contacto.mensajeGeneralWhat
     <meta name="description" content={descripcionDocumento} />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#071927" />
-    <link rel="icon" type="image/svg+xml" href={conRutaBase("/favicon.svg")} />
+    <link rel="icon" href={rutaFaviconIco} sizes="any" />
+    <link rel="icon" type="image/svg+xml" href={rutaFaviconSvg} />
     <meta property="og:title" content={tituloDocumento} />
     <meta property="og:description" content={descripcionDocumento} />
     <meta property="og:type" content="website" />
