@@ -1,24 +1,19 @@
 # Mate Diamante
 
-Sitio web estatico comercial para `Mate Diamante`, construido con Astro + TypeScript y orientado a captar prospectos y cerrar inscripciones por WhatsApp.
+Sitio web estático comercial para `Mate Diamante`, construido con Astro + TypeScript y orientado a convertir visitas en conversaciones de WhatsApp.
 
 ## Principios del proyecto
 
-- Todo el contenido visible del sitio se escribe en espanol.
-- Todo identificador propio del proyecto se escribe en espanol en la mayor medida posible.
+- El sitio habla en español mexicano claro, cercano y sin faltas de ortografía.
+- La navegación se mantiene simple para empujar a la acción principal: escribir por WhatsApp.
+- No se publican precios ni fechas específicas; esos datos los confirma el equipo de ventas.
 - El contenido editable vive centralizado en `src/datos/sitio.json`.
-- El proyecto genera salida estatica para desplegarse facilmente en GitHub Pages.
+- El proyecto genera salida estática para desplegarse fácilmente.
 
 ## Requisitos
 
 - Node.js 20 o superior
 - npm 10 o superior
-
-## Instalacion
-
-```bash
-npm install
-```
 
 ## Desarrollo local
 
@@ -26,74 +21,75 @@ npm install
 npm run dev
 ```
 
-Tambien puedes usar el alias en espanol:
+También puedes usar el alias en español:
 
 ```bash
 npm run inicio
 ```
 
-## Construccion
+## Construcción
 
 ```bash
 npm run build
 ```
 
-Alias en espanol:
+Alias en español:
 
 ```bash
 npm run construir
 ```
 
-## Verificacion de tipos
+## Verificación de tipos
 
 ```bash
 npm run check
 ```
 
-Alias en espanol:
+Alias en español:
 
 ```bash
 npm run verificar
 ```
 
-## Como editar el contenido
+## Cómo editar el contenido
 
 Abre `src/datos/sitio.json`. Desde ese archivo puedes actualizar:
 
-- informacion de marca
+- marca, logo, eslogan y descripción corta
+- navegación principal
 - textos de portada
-- rutas academicas
-- cursos de temporada
+- categorías de programas
+- programas como UNAM, IPN, UAM y EXACER del Colegio de Bachilleres
+- mensajes contextuales de WhatsApp
+- metodología
+- testimonios
+- imágenes de testimonios mediante `imagen` y `textoAlternativo`
 - preguntas frecuentes
-- informacion de contacto
-- apoyo para alumnos
-- configuracion SEO
-- configuracion de medicion y campanas
+- páginas internas
+- configuración SEO
+- medición y campañas
+
+## Flujo recomendado para actualizar programas
+
+1. Localiza el arreglo `programas`.
+2. Agrega o edita un programa con su `id`, `titulo`, `categoria`, `descripcion`, `idealPara`, `puntosClave`, `etiquetaCta` y `mensajeWhatsApp`.
+3. Ajusta el `estado`: `abierto`, `proximo`, `cerrado` u `oculto`.
+4. Evita publicar precios o fechas específicas en el JSON público.
+5. Ejecuta `npm run verificar`.
+6. Genera la versión estática con `npm run construir`.
 
 ## Branding y favicon
 
-El proyecto ya intenta usar estos archivos si existen:
+El proyecto usa estos archivos:
 
 - `public/marca/logotipo-circular.png`
+- `public/marca/compartir-mate-diamante.png`
 - `public/favicon.ico`
+- `public/apple-touch-icon.png`
 
-Mientras esos archivos no esten presentes, el sitio conserva como respaldo el logotipo SVG actual.
-
-## Flujo recomendado para actualizar cursos
-
-1. Localiza el arreglo `cursos`.
-2. Ajusta el `estado` de cada curso: `activo`, `proximo`, `cerrado` o `archivado`.
-3. Actualiza fechas, precio, horarios, descripcion corta y mensaje de WhatsApp.
-4. Guarda el archivo y ejecuta `npm run verificar`.
-5. Genera la version estatica con `npm run construir`.
-
-## Despliegue en GitHub Pages
-
-El repositorio incluye el flujo `.github/workflows/desplegar.yml`, basado en la accion oficial de Astro para GitHub Pages.
+## Despliegue
 
 Variables opcionales recomendadas:
 
-- `URL_SITIO`: dominio canonico del proyecto. El valor por defecto actual es `https://matediamante.com`
-- `BASE_PATH`: ruta base en caso de publicar en `usuario.github.io/repositorio`
-
-Si no se define `BASE_PATH`, el proyecto usara `/` para dominio propio y solo intentara inferir la ruta del repositorio cuando el sitio se publique bajo una URL `github.io`.
+- `URL_SITIO`: dominio canónico del proyecto. El valor por defecto actual es `https://matediamante.com`.
+- `BASE_PATH`: ruta base en caso de publicar en una subcarpeta.

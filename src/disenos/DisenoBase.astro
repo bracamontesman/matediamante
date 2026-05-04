@@ -13,7 +13,7 @@ interface Propiedades {
 
 const { titulo, descripcion, rutaActual = "/" } = Astro.props as Propiedades;
 
-const { marca, seo, contacto } = obtenerConfiguracionSitio();
+const { marca, seo, contacto, llamadas } = obtenerConfiguracionSitio();
 const tituloDocumento = titulo ? `${titulo} | ${seo.tituloBase}` : seo.tituloBase;
 const descripcionDocumento = descripcion ?? seo.descripcionBase;
 const imagenCompartir = new URL(conRutaBase(seo.imagenCompartir), Astro.site).toString();
@@ -114,7 +114,7 @@ const rutaAppleTouchIcon = conRutaBase("/apple-touch-icon.png");
       data-mensaje={contacto.mensajeGeneralWhatsApp}
     >
       <span class="boton-whatsapp-flotante__icono">W</span>
-      <span>Habla con nosotros</span>
+      <span>{llamadas.cierreGeneral.cta.etiqueta}</span>
     </a>
 
     <script is:inline>

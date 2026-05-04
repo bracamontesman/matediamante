@@ -4,60 +4,55 @@ import DisenoBase from "@disenos/DisenoBase.astro";
 import { obtenerConfiguracionSitio } from "@utilidades/sitio";
 
 const sitio = obtenerConfiguracionSitio();
+const pagina = sitio.paginas.accesoAlumnos;
 ---
 
 <DisenoBase
-  titulo="Acceso alumnos"
-  descripcion="Informacion general para alumnos inscritos en Mate Diamante."
+  titulo={pagina.tituloSeo}
+  descripcion={pagina.descripcionSeo}
   rutaActual="/acceso-alumnos/"
 >
   <section class="pagina-encabezado">
     <div class="contenedor bloque-titulo">
-      <span class="bloque-titulo__etiqueta">Apoyo general</span>
-      <h1>{sitio.apoyoAlumnos.titulo}</h1>
-      <p>{sitio.apoyoAlumnos.descripcion}</p>
+      <span class="bloque-titulo__etiqueta">{pagina.etiqueta}</span>
+      <h1>{pagina.titulo}</h1>
+      <p>{pagina.descripcion}</p>
     </div>
   </section>
 
   <section class="seccion">
     <div class="contenedor rejilla rejilla-2">
-      <article class="tarjeta">
-        <h2 style="font-family: Space Grotesk, sans-serif; margin-top: 0;">Pasos para entrar a clase</h2>
-        <ol class="apilado" style="padding-left: 1.2rem; margin: 0;">
-          {sitio.apoyoAlumnos.pasosAcceso.map((paso) => (
+      <article class="tarjeta-lista">
+        <h2>Pasos para entrar a clase</h2>
+        <ol class="lista-ordenada">
+          {pagina.pasosAcceso.map((paso) => (
             <li>{paso}</li>
           ))}
         </ol>
       </article>
 
-      <article class="tarjeta">
-        <h2 style="font-family: Space Grotesk, sans-serif; margin-top: 0;">Avisos generales</h2>
-        <ul class="lista-limpia lista-avisos">
-          {sitio.apoyoAlumnos.avisos.map((aviso) => (
-            <li class="item-con-icono">
-              <span>!</span>
-              <div>{aviso}</div>
-            </li>
+      <article class="tarjeta-lista">
+        <h2>Avisos generales</h2>
+        <ul class="lista-limpia lista-pruebas">
+          {pagina.avisos.map((aviso) => (
+            <li>{aviso}</li>
           ))}
         </ul>
-        <div class="nota" style="margin-top: 1.25rem;">
-          <strong>Calendario general:</strong> {sitio.apoyoAlumnos.calendarioGeneral}
-        </div>
+        <p class="nota">{pagina.calendarioGeneral}</p>
       </article>
     </div>
   </section>
 
   <section class="seccion-compacta">
     <div class="contenedor">
-      <div class="llamada">
-        <h3>Problemas para entrar a Google Meet?</h3>
-        <p>
-          Si ya estas inscrito y tuviste un problema con el enlace o el horario, usa el canal oficial
-          para recibir apoyo rapido.
-        </p>
+      <div class="llamada llamada-final">
+        <div>
+          <h2>{pagina.apoyo.titulo}</h2>
+          <p>{pagina.apoyo.descripcion}</p>
+        </div>
         <BotonWhatsApp
-          mensaje="Hola, soy alumno inscrito y necesito apoyo para entrar a mi clase."
-          etiqueta="Pedir apoyo ahora"
+          mensaje={pagina.apoyo.cta.mensaje}
+          etiqueta={pagina.apoyo.cta.etiqueta}
           evento="clic_whatsapp_apoyo_alumnos"
         />
       </div>

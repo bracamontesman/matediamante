@@ -1,7 +1,7 @@
 ---
 import { conRutaBase, obtenerConfiguracionSitio, obtenerEnlaceWhatsApp } from "@utilidades/sitio";
 
-const { marca, contacto } = obtenerConfiguracionSitio();
+const { marca, contacto, navegacionPrincipal, categoriasProgramas } = obtenerConfiguracionSitio();
 ---
 
 <footer class="pie">
@@ -9,24 +9,40 @@ const { marca, contacto } = obtenerConfiguracionSitio();
     <div class="pie__rejilla">
       <section class="pie__marca">
         <img src={conRutaBase(marca.logotipo)} alt={`Logotipo de ${marca.nombre}`} />
-        <p>{marca.descripcionCorta}</p>
+        <div>
+          <strong>{marca.nombre}</strong>
+          <p>{marca.descripcionCorta}</p>
+        </div>
         {marca.avisoLogotipo && <div class="nota texto-pequeno">{marca.avisoLogotipo}</div>}
       </section>
 
       <section>
         <h3>Explora</h3>
         <ul>
-          <li><a href={conRutaBase("/cursos/")}>Cursos</a></li>
-          <li><a href={conRutaBase("/metodologia/")}>Metodologia</a></li>
-          <li><a href={conRutaBase("/nosotros/")}>Nosotros</a></li>
+          {navegacionPrincipal.map((enlace) => (
+            <li><a href={conRutaBase(enlace.href)}>{enlace.etiqueta}</a></li>
+          ))}
           <li><a href={conRutaBase("/preguntas-frecuentes/")}>Preguntas frecuentes</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Rutas</h3>
+        <ul>
+          {categoriasProgramas.map((categoria) => (
+            <li><a href={conRutaBase("/cursos/")}>{categoria.titulo}</a></li>
+          ))}
         </ul>
       </section>
 
       <section>
         <h3>Contacto</h3>
         <ul>
-          <li><a href={obtenerEnlaceWhatsApp(contacto.mensajeGeneralWhatsApp)} target="_blank" rel="noreferrer noopener">WhatsApp: {contacto.telefonoVisible}</a></li>
+          <li>
+            <a href={obtenerEnlaceWhatsApp(contacto.mensajeGeneralWhatsApp)} target="_blank" rel="noreferrer noopener">
+              WhatsApp: {contacto.telefonoVisible}
+            </a>
+          </li>
           <li><a href={`mailto:${contacto.correo}`}>{contacto.correo}</a></li>
           <li><p>{contacto.horarioAtencion}</p></li>
           <li><p>{contacto.direccionTexto}</p></li>
@@ -36,8 +52,7 @@ const { marca, contacto } = obtenerConfiguracionSitio();
 
     <div class="pie__cierre">
       <p>
-        {new Date().getFullYear()} Mate Diamante. Sitio comercial para informar cursos, captar
-        prospectos y orientar el acceso a clases.
+        {new Date().getFullYear()} {marca.nombre}. Cursos en línea para aspirantes que quieren avanzar con claridad.
       </p>
     </div>
   </div>

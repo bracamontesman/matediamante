@@ -1,18 +1,42 @@
-export type EstadoCurso = "activo" | "proximo" | "cerrado" | "archivado";
+export type EstadoPrograma = "abierto" | "proximo" | "cerrado" | "oculto";
 
-export interface EstadisticaPortada {
+export interface EnlaceNavegacion {
+  href: string;
+  etiqueta: string;
+}
+
+export interface CtaWhatsApp {
+  etiqueta: string;
+  mensaje: string;
+}
+
+export interface CtaEnlace {
+  etiqueta: string;
+  enlace: string;
+}
+
+export interface MetricaPortada {
   valor: string;
   etiqueta: string;
 }
 
-export interface CtaPortada {
-  etiqueta: string;
-  mensaje?: string;
-  enlace?: string;
+export interface ProgramaAcademico {
+  id: string;
+  titulo: string;
+  nombreCorto: string;
+  categoria: string;
+  estado: EstadoPrograma;
+  destacado: boolean;
+  enfoque: string;
+  descripcion: string;
+  idealPara: string[];
+  puntosClave: string[];
+  etiquetaCta: string;
+  mensajeWhatsApp: string;
 }
 
-export interface RutaAcademica {
-  clave: string;
+export interface CategoriaPrograma {
+  id: string;
   titulo: string;
   descripcion: string;
 }
@@ -22,27 +46,25 @@ export interface PasoMetodologia {
   descripcion: string;
 }
 
-export interface Curso {
-  id: string;
-  titulo: string;
-  ruta: string;
-  examenOMeta: string;
-  temporada: string;
-  estado: EstadoCurso;
-  fechaInicio: string;
-  fechaFin: string;
-  resumenHorario: string;
-  modalidad: string;
-  precioTexto: string;
-  resumen: string;
-  destacado: boolean;
-  etiquetaCta: string;
-  mensajeWhatsApp: string;
+export interface Testimonio {
+  cita: string;
+  autor: string;
+  contexto: string;
+  imagen?: string;
+  textoAlternativo?: string;
 }
 
 export interface PreguntaFrecuente {
   pregunta: string;
   respuesta: string;
+}
+
+export interface PaginaSimple {
+  tituloSeo: string;
+  descripcionSeo: string;
+  etiqueta: string;
+  titulo: string;
+  descripcion: string;
 }
 
 export interface ConfiguracionSitio {
@@ -61,38 +83,82 @@ export interface ConfiguracionSitio {
     mensajeGeneralWhatsApp: string;
     direccionTexto: string;
   };
+  navegacionPrincipal: EnlaceNavegacion[];
   portada: {
-    insignia: string;
+    etiqueta: string;
     titulo: string;
     descripcion: string;
-    ctaPrincipal: CtaPortada;
-    ctaSecundario: CtaPortada;
-    estadisticas: EstadisticaPortada[];
+    ctaPrincipal: CtaWhatsApp;
+    ctaSecundario: CtaEnlace;
+    metricas: MetricaPortada[];
+    panel: {
+      titulo: string;
+      descripcion: string;
+      puntos: string[];
+    };
   };
-  rutasAcademicas: RutaAcademica[];
+  categoriasProgramas: CategoriaPrograma[];
+  programas: ProgramaAcademico[];
   metodologia: {
+    etiqueta: string;
     titulo: string;
     descripcion: string;
     pasos: PasoMetodologia[];
   };
-  nosotros: {
-    titulo: string;
-    descripcion: string;
-    pilares: string[];
-  };
   pruebasConfianza: {
+    etiqueta: string;
     titulo: string;
     descripcion: string;
     elementos: string[];
   };
-  cursos: Curso[];
-  preguntasFrecuentes: PreguntaFrecuente[];
-  apoyoAlumnos: {
+  testimonios: {
+    etiqueta: string;
     titulo: string;
     descripcion: string;
-    avisos: string[];
-    pasosAcceso: string[];
-    calendarioGeneral: string;
+    elementos: Testimonio[];
+  };
+  preguntasFrecuentes: PreguntaFrecuente[];
+  paginas: {
+    cursos: PaginaSimple;
+    metodologia: PaginaSimple;
+    nosotros: PaginaSimple & {
+      pilares: string[];
+      manifiesto: {
+        titulo: string;
+        descripcion: string;
+        puntos: string[];
+      };
+    };
+    contacto: PaginaSimple & {
+      opciones: Array<{
+        titulo: string;
+        descripcion: string;
+        cta: CtaWhatsApp;
+      }>;
+    };
+    preguntasFrecuentes: PaginaSimple;
+    accesoAlumnos: PaginaSimple & {
+      avisos: string[];
+      pasosAcceso: string[];
+      calendarioGeneral: string;
+      apoyo: {
+        titulo: string;
+        descripcion: string;
+        cta: CtaWhatsApp;
+      };
+    };
+  };
+  llamadas: {
+    cursosNoPublicados: {
+      titulo: string;
+      descripcion: string;
+      cta: CtaWhatsApp;
+    };
+    cierreGeneral: {
+      titulo: string;
+      descripcion: string;
+      cta: CtaWhatsApp;
+    };
   };
   seo: {
     tituloBase: string;

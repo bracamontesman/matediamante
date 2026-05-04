@@ -2,206 +2,379 @@
   "marca": {
     "nombre": "Mate Diamante",
     "eslogan": "Donde todos somos capaces de aprender",
-    "descripcionCorta": "Preparación segura y efectiva para tu examen de admisión",
+    "descripcionCorta": "Cursos en línea para entrar a la universidad pública o certificar la preparatoria con acompañamiento cercano.",
     "logotipo": "/marca/logotipo-circular.png",
     "avisoLogotipo": ""
   },
   "contacto": {
-    "telefono": "+525548979978",
+    "telefono": "525548979978",
     "telefonoVisible": "55 4897 9978",
     "correo": "clases@matediamante.com",
-    "horarioAtencion": "Siempre abierto",
-    "mensajeGeneralWhatsApp": "Hola, quiero prepararme. ¿Cómo puedo acceder a las clases?",
-    "direccionTexto": "Atención y clases 100% en linea a traves de Google Meet."
+    "horarioAtencion": "Atención por WhatsApp todos los días",
+    "mensajeGeneralWhatsApp": "Hola, vengo del sitio web de Mate Diamante y quiero información para prepararme.",
+    "direccionTexto": "Clases en línea en vivo por Google Meet."
   },
+  "navegacionPrincipal": [
+    {
+      "href": "/",
+      "etiqueta": "Inicio"
+    },
+    {
+      "href": "/cursos/",
+      "etiqueta": "Cursos"
+    },
+    {
+      "href": "/metodologia/",
+      "etiqueta": "Método"
+    },
+    {
+      "href": "/nosotros/",
+      "etiqueta": "Nosotros"
+    },
+    {
+      "href": "/contacto/",
+      "etiqueta": "Contacto"
+    }
+  ],
   "portada": {
-    "insignia": "Cursos en línea para tu examen de admisión",
-    "titulo": "Logra tu objetivo con un método confiable",
-    "descripcion": "Consigue tu objetivo sin estrés: te damos la ruta exacta que necesitas",
+    "etiqueta": "Cursos para aspirantes con ganas de lograrlo",
+    "titulo": "Prepárate para tu siguiente gran examen con profes que sí te entienden",
+    "descripcion": "En Mate Diamante damos clases en línea, en vivo y con seguimiento cercano para aspirantes a UNAM, IPN, UAM y para quienes quieren certificar la preparatoria con el EXACER del Colegio de Bachilleres.",
     "ctaPrincipal": {
-      "etiqueta": "Únete a las clases en línea",
-      "mensaje": "Hola, quiero prepararme. ¿Cómo puedo acceder a las clases?"
+      "etiqueta": "Pedir informes por WhatsApp",
+      "mensaje": "Hola, vengo del sitio web de Mate Diamante y quiero información para prepararme."
     },
     "ctaSecundario": {
-      "etiqueta": "Cursos disponibles",
+      "etiqueta": "Ver cursos",
       "enlace": "/cursos/"
     },
-    "estadisticas": [
+    "metricas": [
       {
-        "valor": "100% en linea",
-        "etiqueta": "Clases por Google Meet"
+        "valor": "UNAM, IPN y UAM",
+        "etiqueta": "Preparación para ingreso universitario"
       },
       {
-        "valor": "2 rutas",
-        "etiqueta": "Ingreso universitario y preparatoria"
+        "valor": "EXACER Colbach",
+        "etiqueta": "Ruta para certificar la preparatoria"
       },
       {
-        "valor": "Atención directa",
-        "etiqueta": "Seguimiento rápido por WhatsApp"
+        "valor": "Clases en vivo",
+        "etiqueta": "Acompañamiento por Google Meet"
       }
-    ]
+    ],
+    "panel": {
+      "titulo": "Tu mensaje llega con contexto",
+      "descripcion": "Cada botón de WhatsApp dice desde qué curso vienes para que el equipo de ventas te atienda más rápido.",
+      "puntos": [
+        "Orientación según tu examen",
+        "Información de horarios y fechas por chat",
+        "Proceso de inscripción guiado"
+      ]
+    }
   },
-  "rutasAcademicas": [
+  "categoriasProgramas": [
     {
-      "clave": "ingreso-universitario",
-      "titulo": "Ingreso universitario",
-      "descripcion": "Cursos orientados a convocatorias de UNAM, IPN y UAM, con enfoque practico y ritmo intensivo."
+      "id": "universidad",
+      "titulo": "Ingreso a universidad",
+      "descripcion": "Cursos para aspirantes que buscan entrar a instituciones públicas como UNAM, IPN y UAM."
     },
     {
-      "clave": "conclusion-preparatoria",
-      "titulo": "Conclusión de preparatoria",
-      "descripcion": "Acompañamiento para alumnos que necesitan concluir la preparatoria con estructura, constancia y claridad."
+      "id": "preparatoria",
+      "titulo": "Certificación de preparatoria",
+      "descripcion": "Preparación para presentar el EXACER del Colegio de Bachilleres y acreditar la preparatoria en un solo examen."
+    }
+  ],
+  "programas": [
+    {
+      "id": "unam",
+      "titulo": "Curso de ingreso a la UNAM",
+      "nombreCorto": "UNAM",
+      "categoria": "universidad",
+      "estado": "abierto",
+      "destacado": true,
+      "enfoque": "Ingreso universitario",
+      "descripcion": "Preparación para aspirantes que quieren llegar con estructura, práctica y confianza al examen de admisión de la UNAM.",
+      "idealPara": [
+        "Aspirantes que ya eligieron carrera o área",
+        "Alumnos que necesitan ordenar su estudio",
+        "Quienes buscan clases en vivo y explicación clara"
+      ],
+      "puntosClave": [
+        "Clases en línea por Google Meet",
+        "Ejercicios guiados y resolución de dudas",
+        "Seguimiento para mantener ritmo de estudio"
+      ],
+      "etiquetaCta": "Quiero informes de UNAM",
+      "mensajeWhatsApp": "Hola, vengo del sitio web de Mate Diamante y quiero información del curso de ingreso a la UNAM."
+    },
+    {
+      "id": "ipn",
+      "titulo": "Curso de ingreso al IPN",
+      "nombreCorto": "IPN",
+      "categoria": "universidad",
+      "estado": "abierto",
+      "destacado": true,
+      "enfoque": "Ingreso universitario",
+      "descripcion": "Ruta de preparación para aspirantes al IPN que necesitan practicar con constancia y reforzar sus bases antes del examen.",
+      "idealPara": [
+        "Aspirantes a nivel superior del IPN",
+        "Alumnos que quieren repasar con guía",
+        "Quienes buscan avanzar con un grupo y profesores cercanos"
+      ],
+      "puntosClave": [
+        "Trabajo por objetivos de aprendizaje",
+        "Material de apoyo durante el curso",
+        "Atención por WhatsApp para dudas de inscripción"
+      ],
+      "etiquetaCta": "Quiero informes del IPN",
+      "mensajeWhatsApp": "Hola, vengo del sitio web de Mate Diamante y quiero información del curso de ingreso al IPN."
+    },
+    {
+      "id": "uam",
+      "titulo": "Curso de ingreso a la UAM",
+      "nombreCorto": "UAM",
+      "categoria": "universidad",
+      "estado": "abierto",
+      "destacado": true,
+      "enfoque": "Ingreso universitario",
+      "descripcion": "Curso para aspirantes a la UAM que quieren reforzar temas importantes y llegar mejor preparados a su convocatoria.",
+      "idealPara": [
+        "Aspirantes a primera o segunda vuelta",
+        "Alumnos que necesitan práctica enfocada",
+        "Quienes quieren estudiar sin perder dirección"
+      ],
+      "puntosClave": [
+        "Sesiones en vivo con explicación paso a paso",
+        "Ritmo intensivo según convocatoria",
+        "Orientación para elegir la ruta correcta"
+      ],
+      "etiquetaCta": "Quiero informes de UAM",
+      "mensajeWhatsApp": "Hola, vengo del sitio web de Mate Diamante y quiero información del curso de ingreso a la UAM."
+    },
+    {
+      "id": "exacer-colbach",
+      "titulo": "Curso para EXACER del Colegio de Bachilleres",
+      "nombreCorto": "EXACER Colbach",
+      "categoria": "preparatoria",
+      "estado": "abierto",
+      "destacado": true,
+      "enfoque": "Certificación de preparatoria",
+      "descripcion": "Preparación para presentar el EXACER del Colegio de Bachilleres, el examen único con el que puedes certificar tu preparatoria en México.",
+      "idealPara": [
+        "Personas que quieren terminar la prepa",
+        "Alumnos que necesitan una ruta clara para volver a estudiar",
+        "Quienes buscan acompañamiento y constancia"
+      ],
+      "puntosClave": [
+        "Clases en línea con profesores cercanos",
+        "Acompañamiento para retomar el ritmo",
+        "Información de inscripción por WhatsApp"
+      ],
+      "etiquetaCta": "Quiero informes de EXACER",
+      "mensajeWhatsApp": "Hola, vengo del sitio web de Mate Diamante y quiero información del curso para EXACER del Colegio de Bachilleres."
     }
   ],
   "metodologia": {
-    "titulo": "Una metodología hecha para estudiar sin perder impulso",
-    "descripcion": "El proceso combina clases en vivo, organización por objetivos, ejercicios guiados y acompañamiento claro para que el alumno avance con enfoque y mejor ritmo.",
+    "etiqueta": "Cómo estudiamos contigo",
+    "titulo": "Un método claro, joven y directo para no estudiar a ciegas",
+    "descripcion": "No prometemos magia. Te damos clases en vivo, explicación aterrizada, práctica guiada y una ruta para que sepas qué hacer cada semana.",
     "pasos": [
       {
-        "titulo": "Diagnostico del objetivo",
-        "descripcion": "Se identifica la convocatoria o meta académica y se recomienda la ruta de trabajo adecuada."
+        "titulo": "Ubicamos tu objetivo",
+        "descripcion": "Primero identificamos si vas por UNAM, IPN, UAM, EXACER del Colegio de Bachilleres u otra ruta futura."
       },
       {
-        "titulo": "Clases en linea por Google Meet",
-        "descripcion": "Las sesiones ocurren en vivo, con explicación estructurada y espacio para resolver dudas."
+        "titulo": "Entramos a clases en vivo",
+        "descripcion": "Las sesiones son en línea por Google Meet, con profesores que explican de forma clara y cercana."
       },
       {
-        "titulo": "Práctica enfocada",
-        "descripcion": "Se trabaja con ejercicios y temas clave para que el tiempo de estudio se aproveche al máximo."
+        "titulo": "Practicamos con intención",
+        "descripcion": "Trabajamos ejercicios, dudas y hábitos de estudio sin publicar temarios específicos en el sitio."
       },
       {
-        "titulo": "Seguimiento cercano",
-        "descripcion": "El alumno recibe indicaciones claras para saber cómo continuar y qué reforzar."
+        "titulo": "Te guiamos por WhatsApp",
+        "descripcion": "El equipo de atención resuelve dudas de inscripción, horarios, fechas y acceso desde el canal oficial."
       }
     ]
   },
-  "nosotros": {
-    "titulo": "Profesores que combinan claridad, ritmo y cercanía",
-    "descripcion": "Mate Diamante trabaja como un grupo de docentes que entiende la presión de una convocatoria importante. Nuestra oferta se enfoca en explicar con claridad, organizar el estudio y acompañar al alumno durante el proceso sin hacerlo pesado.",
-    "pilares": [
-      "Explicación clara y aterrizada",
-      "Acompañamiento cercano durante el proceso",
-      "Cursos pensados para convocatorias próximas y reales",
-      "Operación simple para entrar rápido a clases"
-    ]
-  },
   "pruebasConfianza": {
-    "titulo": "Confianza construida desde la claridad",
-    "descripcion": "Buscamos satisfacer las necesidades de nuestros alumnos a través de una relación forjada desde la confianza y la claridad.",
+    "etiqueta": "Por qué escribirnos",
+    "titulo": "Tienes profes, materiales y un equipo listo para orientarte",
+    "descripcion": "El sitio te ayuda a elegir una ruta; la conversación por WhatsApp te da los detalles exactos para tomar acción.",
     "elementos": [
-      "Atención directa por WhatsApp",
-      "Clases en vivo por Google Meet",
-      "Información transparente sobre fechas, horarios y costos",
-      "Oferta organizada por temporada y objetivo académico"
+      "Cursos en línea con clases en vivo",
+      "Profesores jóvenes, preparados y cercanos",
+      "Materiales de apoyo durante el curso",
+      "Testimonios, fotos y videos disponibles para reforzar confianza",
+      "Información de precios, fechas y horarios por WhatsApp"
     ]
   },
-  "cursos": [
-    {
-      "id": "uam-segunda-vuelta-intensivo",
-      "titulo": "Curso intensivo UAM - segunda vuelta",
-      "ruta": "ingreso-universitario",
-      "examenOMeta": "Ingreso a la UAM",
-      "temporada": "Primavera 2026",
-      "estado": "activo",
-      "fechaInicio": "Por definir",
-      "fechaFin": "Por definir",
-      "resumenHorario": "Días por definir de 19:00 a 21:00",
-      "modalidad": "Clases en linea por Google Meet",
-      "precioTexto": "Pregunta por los precios",
-      "resumen": "Programa intensivo para reforzar temas clave y llegar con mejor ritmo a la segunda vuelta de la UAM.",
-      "destacado": true,
-      "etiquetaCta": "Quiero informes del curso UAM",
-      "mensajeWhatsApp": "Hola, quiero informes del curso intensivo para la segunda vuelta de la UAM."
-    },
-    {
-      "id": "ingreso-unam-regular",
-      "titulo": "Curso de ingreso UNAM",
-      "ruta": "ingreso-universitario",
-      "examenOMeta": "Ingreso a la UNAM",
-      "temporada": "Verano 2026",
-      "estado": "proximo",
-      "fechaInicio": "Por definir",
-      "fechaFin": "Por definir",
-      "resumenHorario": "Días por definir de 18:30 a 21:00",
-      "modalidad": "Clases en linea por Google Meet",
-      "precioTexto": "Pregunta por los precios",
-      "resumen": "Curso de preparación para la convocatoria principal de la UNAM con trabajo constante por todas las áreas que componen el examen de admisión.",
-      "destacado": true,
-      "etiquetaCta": "Avísenme cuando abra UNAM",
-      "mensajeWhatsApp": "Hola, quiero apartar mi lugar o recibir informes del proximo curso de ingreso a la UNAM."
-    },
-    {
-      "id": "ingreso-ipn-regular",
-      "titulo": "Curso de ingreso IPN",
-      "ruta": "ingreso-universitario",
-      "examenOMeta": "Ingreso al IPN",
-      "temporada": "Verano 2026",
-      "estado": "proximo",
-      "fechaInicio": "Por definir",
-      "fechaFin": "Por definir",
-      "resumenHorario": "Días por definir de 9:00 a 13:00",
-      "modalidad": "Clases en linea por Google Meet",
-      "precioTexto": "Pregunta por los precios",
-      "resumen": "Ruta de preparación con énfasis en organización, práctica y repaso de temas de mayor peso en el IPN.",
-      "destacado": false,
-      "etiquetaCta": "Quiero informes del IPN",
-      "mensajeWhatsApp": "Hola, quiero recibir informes del curso de ingreso al IPN."
-    },
-    {
-      "id": "conclusion-preparatoria-flexible",
-      "titulo": "Ruta de conclusion de preparatoria",
-      "ruta": "conclusion-preparatoria",
-      "examenOMeta": "Conclusión de preparatoria",
-      "temporada": "Inscripción continua",
-      "estado": "activo",
-      "fechaInicio": "Por definir",
-      "fechaFin": "Por definir",
-      "resumenHorario": "Horarios por confirmar según grupo",
-      "modalidad": "Clases en linea por Google Meet",
-      "precioTexto": "Informes por WhatsApp",
-      "resumen": "Acompañamiento para alumnos que buscan concluir la preparatoria con una ruta ordenada y seguimiento cercano.",
-      "destacado": true,
-      "etiquetaCta": "Quiero concluir la preparatoria",
-      "mensajeWhatsApp": "Hola, quiero informes para concluir la preparatoria con Mate Diamante."
-    }
-  ],
+  "testimonios": {
+    "etiqueta": "Historias reales",
+    "titulo": "Aquí deben vivir los logros de sus alumnos",
+    "descripcion": "Cuando carguen fotos, certificados y videos, esta sección puede mostrar evidencia real sin convertir el sitio en un folleto largo.",
+    "elementos": [
+      {
+        "cita": "Gracias al curso llegué con más seguridad al examen y entendí temas que antes evitaba.",
+        "autor": "Alumno de ingreso universitario",
+        "contexto": "Testimonio editable"
+      },
+      {
+        "cita": "Me ayudaron a recuperar el ritmo de estudio y a sentir que sí podía terminar la prepa.",
+        "autor": "Alumno EXACER Colbach",
+        "contexto": "Testimonio editable"
+      },
+      {
+        "cita": "Las clases se sienten cercanas, como estudiar con alguien que ya pasó por el proceso.",
+        "autor": "Aspirante Mate Diamante",
+        "contexto": "Testimonio editable"
+      }
+    ]
+  },
   "preguntasFrecuentes": [
     {
-      "pregunta": "¿Cómo me inscribo a un curso?",
-      "respuesta": "Puedes escribir por WhatsApp para recibir información del curso, confirmar disponibilidad y conocer el procedimiento de pago e ingreso."
+      "pregunta": "¿Dónde me dicen precios y fechas?",
+      "respuesta": "Por WhatsApp. Así el equipo puede confirmarte la información vigente según el curso que te interesa."
     },
     {
-      "pregunta": "¿Las clases son presenciales o en linea?",
-      "respuesta": "La operación actual está pensada para clases 100% en linea a traves de Google Meet."
+      "pregunta": "¿Las clases son presenciales o en línea?",
+      "respuesta": "Las clases son en línea y en vivo por Google Meet."
     },
     {
-      "pregunta": "¿Qué pasa después de pagar?",
-      "respuesta": "El equipo comparte indicaciones de acceso, fechas y el enlace correspondiente para unirte a las clases en línea."
+      "pregunta": "¿Puedo preguntar aunque todavía no sepa qué curso necesito?",
+      "respuesta": "Sí. Escríbenos por WhatsApp y cuéntanos tu objetivo; el equipo te orienta para elegir la ruta adecuada."
     },
     {
-      "pregunta": "¿Puedo preguntar por una convocatoria específica?",
-      "respuesta": "Sí. Puedes escribir por WhatsApp y explicar para qué universidad, examen o etapa académica necesitas prepararte."
+      "pregunta": "¿Publican el temario completo en el sitio?",
+      "respuesta": "No. El sitio muestra las rutas disponibles y la forma de trabajo; los detalles específicos se revisan por WhatsApp."
     }
   ],
-  "apoyoAlumnos": {
-    "titulo": "Información general para alumnos inscritos",
-    "descripcion": "Esta sección ofrece una referencia pública y sencilla para saber cómo entrar a clases y qué esperar antes de cada sesión.",
-    "avisos": [
-      "Confirma por WhatsApp que recibiste el enlace vigente de Google Meet.",
-      "Entra con al menos 10 minutos de anticipación a tu primera clase.",
-      "Ten a la mano libreta, calculadora si aplica y materiales indicados por el profesor."
-    ],
-    "pasosAcceso": [
-      "Realiza tu pago y confirma tu inscripción con el equipo.",
-      "Recibe por WhatsApp el enlace de clase y las indicaciones previas.",
-      "Ingresa a Google Meet en el horario asignado.",
-      "Si surge algún problema de acceso, escribe de inmediato al contacto oficial."
-    ],
-    "calendarioGeneral": "Los horarios definitivos y avisos especiales se confirman por WhatsApp según el curso o grupo."
+  "paginas": {
+    "cursos": {
+      "tituloSeo": "Cursos",
+      "descripcionSeo": "Cursos en línea de Mate Diamante para UNAM, IPN, UAM y EXACER del Colegio de Bachilleres.",
+      "etiqueta": "Cursos disponibles",
+      "titulo": "Elige tu objetivo y escribe por WhatsApp",
+      "descripcion": "Cada programa te lleva al mismo equipo de atención, pero con un mensaje distinto para que sepan exactamente qué información necesitas."
+    },
+    "metodologia": {
+      "tituloSeo": "Método",
+      "descripcionSeo": "Conoce el método de Mate Diamante para preparar aspirantes con clases en línea y acompañamiento cercano.",
+      "etiqueta": "Método Mate Diamante",
+      "titulo": "Estudiar acompañado cambia todo",
+      "descripcion": "Nuestra forma de trabajo combina claridad, práctica y una comunicación sencilla para que no tengas que resolver tu proceso a solas."
+    },
+    "nosotros": {
+      "tituloSeo": "Nosotros",
+      "descripcionSeo": "Conoce a Mate Diamante, un grupo de profesores jóvenes que preparan aspirantes para exámenes importantes.",
+      "etiqueta": "Quiénes somos",
+      "titulo": "Profes jóvenes ayudando a nuevos aspirantes",
+      "descripcion": "Mate Diamante nace de una idea simple: estudiar para un examen importante no tiene que sentirse frío, lejano ni imposible.",
+      "pilares": [
+        "Explicamos sin enredar",
+        "Acompañamos sin juzgar",
+        "Trabajamos con objetivos reales",
+        "Cuidamos que el proceso sea claro desde el primer mensaje"
+      ],
+      "manifiesto": {
+        "titulo": "No somos una institución acartonada",
+        "descripcion": "Somos un equipo académico que habla claro, entiende la presión de los aspirantes y sabe que la motivación también se construye con orden.",
+        "puntos": [
+          "Cercanía sin perder seriedad",
+          "Clases vivas, no discursos eternos",
+          "Comunicación rápida con el equipo de atención"
+        ]
+      }
+    },
+    "contacto": {
+      "tituloSeo": "Contacto",
+      "descripcionSeo": "Escribe a Mate Diamante por WhatsApp para recibir informes de cursos e inscripción.",
+      "etiqueta": "Contacto directo",
+      "titulo": "La forma más rápida de avanzar es escribirnos",
+      "descripcion": "El equipo de atención te comparte precios, fechas, horarios y proceso de inscripción según el curso que necesites.",
+      "opciones": [
+        {
+          "titulo": "Ingreso universitario",
+          "descripcion": "Para aspirantes a UNAM, IPN, UAM u otra convocatoria futura.",
+          "cta": {
+            "etiqueta": "Preguntar por universidad",
+            "mensaje": "Hola, vengo del sitio web de Mate Diamante y quiero información para ingreso universitario."
+          }
+        },
+        {
+          "titulo": "EXACER del Colegio de Bachilleres",
+          "descripcion": "Para certificar la preparatoria en México mediante examen único.",
+          "cta": {
+            "etiqueta": "Preguntar por EXACER",
+            "mensaje": "Hola, vengo del sitio web de Mate Diamante y quiero información del curso para EXACER del Colegio de Bachilleres."
+          }
+        },
+        {
+          "titulo": "Orientación general",
+          "descripcion": "Si todavía no sabes qué ruta necesitas, escribe y te orientamos.",
+          "cta": {
+            "etiqueta": "Quiero orientación",
+            "mensaje": "Hola, vengo del sitio web de Mate Diamante y quiero que me orienten para elegir un curso."
+          }
+        }
+      ]
+    },
+    "preguntasFrecuentes": {
+      "tituloSeo": "Preguntas frecuentes",
+      "descripcionSeo": "Preguntas frecuentes sobre clases en línea, inscripción y WhatsApp de Mate Diamante.",
+      "etiqueta": "Dudas rápidas",
+      "titulo": "Lo básico antes de escribirnos",
+      "descripcion": "Respondemos lo necesario para que puedas decidir si vale la pena iniciar una conversación por WhatsApp."
+    },
+    "accesoAlumnos": {
+      "tituloSeo": "Acceso alumnos",
+      "descripcionSeo": "Información general para alumnos inscritos en Mate Diamante.",
+      "etiqueta": "Alumnos inscritos",
+      "titulo": "Acceso y avisos para alumnos",
+      "descripcion": "Esta página queda como apoyo secundario para quienes ya forman parte de un grupo.",
+      "avisos": [
+        "Confirma por WhatsApp que recibiste el enlace vigente de Google Meet.",
+        "Entra con al menos 10 minutos de anticipación a tu primera clase.",
+        "Ten a la mano libreta, calculadora si aplica y materiales indicados por el profesor."
+      ],
+      "pasosAcceso": [
+        "Confirma tu inscripción con el equipo.",
+        "Recibe por WhatsApp el enlace de clase y las indicaciones previas.",
+        "Ingresa a Google Meet en el horario asignado.",
+        "Si surge algún problema de acceso, escribe al contacto oficial."
+      ],
+      "calendarioGeneral": "Los horarios definitivos y avisos especiales se confirman por WhatsApp según el curso o grupo.",
+      "apoyo": {
+        "titulo": "¿Necesitas apoyo para entrar a clase?",
+        "descripcion": "Si ya eres alumno inscrito, escribe al canal oficial para recibir ayuda con tu acceso.",
+        "cta": {
+          "etiqueta": "Pedir apoyo",
+          "mensaje": "Hola, soy alumno inscrito en Mate Diamante y necesito apoyo para entrar a mi clase."
+        }
+      }
+    }
+  },
+  "llamadas": {
+    "cursosNoPublicados": {
+      "titulo": "¿Buscas otro examen?",
+      "descripcion": "Mate Diamante puede abrir nuevas rutas según temporada. Si no ves tu convocatoria, pregunta por WhatsApp y el equipo te orienta.",
+      "cta": {
+        "etiqueta": "Preguntar por otro examen",
+        "mensaje": "Hola, vengo del sitio web de Mate Diamante y quiero preguntar por un examen o curso que no veo publicado."
+      }
+    },
+    "cierreGeneral": {
+      "titulo": "Da el primer paso sin compromiso",
+      "descripcion": "Escríbenos por WhatsApp, cuéntanos qué examen quieres presentar y recibe la información vigente para decidir tu siguiente paso.",
+      "cta": {
+        "etiqueta": "Hablar con Mate Diamante",
+        "mensaje": "Hola, vengo del sitio web de Mate Diamante y quiero información para prepararme."
+      }
+    }
   },
   "seo": {
     "tituloBase": "Mate Diamante",
-    "descripcionBase": "Cursos en linea para ingreso universitario y conclusión de preparatoria con clases por Google Meet y atención directa por WhatsApp.",
+    "descripcionBase": "Cursos en línea para preparar el ingreso a UNAM, IPN, UAM y el EXACER del Colegio de Bachilleres con clases en vivo y atención por WhatsApp.",
     "imagenCompartir": "/marca/compartir-mate-diamante.png"
   },
   "medicion": {

@@ -1,13 +1,13 @@
 import { validarSitio } from "@utilidades/validarSitio";
-import type { ConfiguracionSitio, Curso, EstadoCurso } from "@utilidades/tipos";
+import type { ConfiguracionSitio, EstadoPrograma, ProgramaAcademico } from "@utilidades/tipos";
 
 const configuracionSitio = validarSitio();
 
-const ordenEstados: Record<EstadoCurso, number> = {
-  activo: 0,
+const ordenEstados: Record<EstadoPrograma, number> = {
+  abierto: 0,
   proximo: 1,
   cerrado: 2,
-  archivado: 3
+  oculto: 3
 };
 
 export function obtenerConfiguracionSitio(): ConfiguracionSitio {
@@ -30,50 +30,38 @@ export function obtenerEnlaceWhatsApp(mensaje: string, telefono = configuracionS
   return `https://wa.me/${telefono}?text=${mensajeCodificado}`;
 }
 
-export function obtenerCursosVisibles(): Curso[] {
-  return [...configuracionSitio.cursos]
-    .filter((curso) => curso.estado !== "archivado")
-    .sort((cursoA, cursoB) => {
-      const ordenA = ordenEstados[cursoA.estado];
-      const ordenB = ordenEstados[cursoB.estado];
+export function obtenerProgramasVisibles(): ProgramaAcademico[] {
+  return [...configuracionSitio.programas]
+    .filter((programa) => programa.estado !== "oculto")
+    .sort((programaA, programaB) => {
+      const ordenA = ordenEstados[programaA.estado];
+      const ordenB = ordenEstados[programaB.estado];
 
       if (ordenA !== ordenB) {
         return ordenA - ordenB;
       }
 
-      return cursoA.fechaInicio.localeCompare(cursoB.fechaInicio);
+      return programaA.titulo.localeCompare(programaB.titulo, "es-MX");
     });
 }
 
-export function obtenerCursosActivos(): Curso[] {
-  return obtenerCursosVisibles().filter((curso) => curso.estado === "activo");
+export function obtenerProgramasDestacados(): ProgramaAcademico[] {
+  return obtenerProgramasVisibles().filter(
+    (programa) => programa.destacado && programa.estado !== "cerrado"
+  );
 }
 
-export function obtenerCursosDestacados(): Curso[] {
-  return obtenerCursosVisibles().filter((curso) => curso.destacado && curso.estado !== "cerrado");
+export function obtenerProgramasPorCategoria(categoria: string): ProgramaAcademico[] {
+  return obtenerProgramasVisibles().filter((programa) => programa.categoria === categoria);
 }
 
-export function obtenerCursosPorRuta(claveRuta: string): Curso[] {
-  return obtenerCursosVisibles().filter((curso) => curso.ruta === claveRuta);
-}
-
-export function obtenerEtiquetaEstado(estado: EstadoCurso): string {
-  const etiquetas: Record<EstadoCurso, string> = {
-    activo: "Inscripciones abiertas",
-    proximo: "Proximo grupo",
+export function obtenerEtiquetaEstado(estado: EstadoPrograma): string {
+  const etiquetas: Record<EstadoPrograma, string> = {
+    abierto: "Informes abiertos",
+    proximo: "Próximo grupo",
     cerrado: "Grupo cerrado",
-    archivado: "Archivado"
+    oculto: "Oculto"
   };
 
   return etiquetas[estado];
-}
-
-export function formatearFecha(fechaIso: string): string {
-  const fecha = new Date(`${fechaIso}T12:00:00`);
-  if (isNaN(fecha.getTime())) return fechaIso;
-  return new Intl.DateTimeFormat("es-MX", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  }).format(fecha);
 }

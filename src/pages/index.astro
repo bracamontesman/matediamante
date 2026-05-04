@@ -5,78 +5,93 @@ import DisenoBase from "@disenos/DisenoBase.astro";
 import {
   conRutaBase,
   obtenerConfiguracionSitio,
-  obtenerCursosDestacados
+  obtenerProgramasDestacados
 } from "@utilidades/sitio";
 
 const sitio = obtenerConfiguracionSitio();
-const cursosDestacados = obtenerCursosDestacados();
+const programasDestacados = obtenerProgramasDestacados();
 ---
 
 <DisenoBase rutaActual="/" descripcion={sitio.seo.descripcionBase}>
   <section class="hero">
     <div class="contenedor hero__interior">
       <div class="bloque-titulo hero__contenido">
-        <span class="bloque-titulo__etiqueta">{sitio.portada.insignia}</span>
+        <span class="bloque-titulo__etiqueta">{sitio.portada.etiqueta}</span>
         <h1>{sitio.portada.titulo}</h1>
         <p>{sitio.portada.descripcion}</p>
-        <div class="botones" style="margin-top: 1.5rem;">
+        <div class="botones">
           <BotonWhatsApp
-            mensaje={sitio.portada.ctaPrincipal.mensaje!}
+            mensaje={sitio.portada.ctaPrincipal.mensaje}
             etiqueta={sitio.portada.ctaPrincipal.etiqueta}
             evento="clic_whatsapp_portada"
           />
-          <a class="boton-secundario" href={conRutaBase(sitio.portada.ctaSecundario.enlace!)}>
+          <a class="boton-secundario" href={conRutaBase(sitio.portada.ctaSecundario.enlace)}>
             {sitio.portada.ctaSecundario.etiqueta}
           </a>
         </div>
       </div>
 
-      <div class="hero__estadisticas">
-        {sitio.portada.estadisticas.map((estadistica) => (
-          <article class="hero__estadistica">
-            <strong>{estadistica.valor}</strong>
-            <span>{estadistica.etiqueta}</span>
-          </article>
-        ))}
-      </div>
+      <aside class="hero__panel" aria-label="Información principal de Mate Diamante">
+        <img src={conRutaBase(sitio.marca.logotipo)} alt={`Logotipo de ${sitio.marca.nombre}`} />
+        <div>
+          <span>{sitio.marca.eslogan}</span>
+          <h2>{sitio.portada.panel.titulo}</h2>
+          <p>{sitio.portada.panel.descripcion}</p>
+        </div>
+        <ul class="lista-limpia lista-compacta">
+          {sitio.portada.panel.puntos.map((punto) => (
+            <li>{punto}</li>
+          ))}
+        </ul>
+      </aside>
     </div>
-  </section>
 
-  <section class="seccion-destacada">
-    <div class="contenedor">
-      <div class="franja rejilla rejilla-3">
-        {sitio.rutasAcademicas.map((ruta) => (
-          <article class="apilado">
-            <span class="bloque-titulo__etiqueta">{ruta.titulo}</span>
-            <h2 style="margin: 0; font-size: 1.4rem;">{ruta.titulo}</h2>
-            <p class="texto-suave" style="margin: 0;">{ruta.descripcion}</p>
-          </article>
-        ))}
-        <article class="apilado">
-          <span class="bloque-titulo__etiqueta">Proceso simple</span>
-          <h2 style="margin: 0; font-size: 1.4rem;">Te informas, te inscribes y entras a clase</h2>
-          <p class="texto-suave" style="margin: 0;">
-            Consulta la información de los cursos en este sitio web y escríbenos para iniciar tu proceso de inscripción
-          </p>
+    <div class="contenedor hero__metricas">
+      {sitio.portada.metricas.map((metrica) => (
+        <article>
+          <strong>{metrica.valor}</strong>
+          <span>{metrica.etiqueta}</span>
         </article>
-      </div>
+      ))}
     </div>
   </section>
 
-  <section class="seccion">
+  <section class="seccion seccion-programas">
     <div class="contenedor">
       <div class="bloque-titulo">
-        <span class="bloque-titulo__etiqueta">Cursos activos y próximos</span>
-        <h2>Consulta nuestra oferta de cursos</h2>
-        <p>Recibe orientación y más información a través de nuestros medios oficiales. Si deseas iniciar el proceso de inscripción a cualquiera de estos cursos, simplemente escríbenos en nuestro WhatsApp.</p>
+        <span class="bloque-titulo__etiqueta">{sitio.paginas.cursos.etiqueta}</span>
+        <h2>{sitio.paginas.cursos.titulo}</h2>
+        <p>{sitio.paginas.cursos.descripcion}</p>
       </div>
 
       <div class="rejilla rejilla-2">
-        {cursosDestacados.map((curso) => (
+        {programasDestacados.map((programa) => (
           <TarjetaCurso
-            curso={curso}
-            ruta={sitio.rutasAcademicas.find((ruta) => ruta.clave === curso.ruta)}
+            programa={programa}
+            categoria={sitio.categoriasProgramas.find((categoria) => categoria.id === programa.categoria)}
           />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion seccion-dividida">
+    <div class="contenedor rejilla rejilla-2">
+      <article class="panel-editorial">
+        <span class="bloque-titulo__etiqueta">{sitio.metodologia.etiqueta}</span>
+        <h2>{sitio.metodologia.titulo}</h2>
+        <p>{sitio.metodologia.descripcion}</p>
+      </article>
+
+      <div class="lista-pasos">
+        {sitio.metodologia.pasos.map((paso, indice) => (
+          <article class="paso-metodo">
+            <span>{indice + 1}</span>
+            <div>
+              <h3>{paso.titulo}</h3>
+              <p>{paso.descripcion}</p>
+            </div>
+          </article>
         ))}
       </div>
     </div>
@@ -84,74 +99,59 @@ const cursosDestacados = obtenerCursosDestacados();
 
   <section class="seccion">
     <div class="contenedor rejilla rejilla-2">
-      <article class="tarjeta">
-        <div class="bloque-titulo">
-          <span class="bloque-titulo__etiqueta">Metodología</span>
-          <h2>{sitio.metodologia.titulo}</h2>
-          <p>{sitio.metodologia.descripcion}</p>
-        </div>
-
-        <div class="lista-pasos">
-          {sitio.metodologia.pasos.map((paso, indice) => (
-            <div class="item-con-icono">
-              <span>{indice + 1}</span>
-              <div>
-                <strong>{paso.titulo}</strong>
-                <p class="texto-suave" style="margin: 0.2rem 0 0;">{paso.descripcion}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </article>
-
-      <article class="llamada">
+      <article class="llamada llamada-clara">
+        <span class="bloque-titulo__etiqueta">{sitio.pruebasConfianza.etiqueta}</span>
         <h2>{sitio.pruebasConfianza.titulo}</h2>
         <p>{sitio.pruebasConfianza.descripcion}</p>
-        <ul class="lista-limpia lista-pilares">
-          {sitio.pruebasConfianza.elementos.map((elemento) => (
-            <li class="item-con-icono">
-              <span>+</span>
-              <div>{elemento}</div>
-            </li>
-          ))}
-        </ul>
       </article>
+
+      <ul class="lista-limpia lista-pruebas">
+        {sitio.pruebasConfianza.elementos.map((elemento) => (
+          <li>{elemento}</li>
+        ))}
+      </ul>
     </div>
   </section>
 
-  <section class="seccion">
-    <div class="contenedor rejilla rejilla-2">
-      <article class="tarjeta">
-        <div class="bloque-titulo">
-          <span class="bloque-titulo__etiqueta">Nosotros</span>
-          <h2>{sitio.nosotros.titulo}</h2>
-          <p>{sitio.nosotros.descripcion}</p>
-        </div>
-        <ul class="lista-limpia lista-pilares">
-          {sitio.nosotros.pilares.map((pilar) => (
-            <li class="item-con-icono">
-              <span>•</span>
-              <div>{pilar}</div>
-            </li>
-          ))}
-        </ul>
-      </article>
+  <section class="seccion seccion-testimonios">
+    <div class="contenedor">
+      <div class="bloque-titulo">
+        <span class="bloque-titulo__etiqueta">{sitio.testimonios.etiqueta}</span>
+        <h2>{sitio.testimonios.titulo}</h2>
+        <p>{sitio.testimonios.descripcion}</p>
+      </div>
 
-      <article class="llamada">
-        <h3>Resuelve dudas y entra en contacto rápido con nosotros</h3>
-        <p>
-          Si quieres confirmar qué curso te conviene o necesitas, conocer horarios o preguntar por una
-          convocatoria en específico, nuestro WhatsApp es nuestro canal principal y está pensado para responder todas tus dudas a la brevedad.
-        </p>
-        <div class="botones">
-          <BotonWhatsApp
-            mensaje={sitio.contacto.mensajeGeneralWhatsApp}
-            etiqueta="Hablar con Mate Diamante"
-            evento="clic_whatsapp_llamada_inicio"
-          />
-          <a class="boton-secundario" href={conRutaBase("/contacto/")}>Ir a contacto</a>
+      <div class="rejilla rejilla-3">
+        {sitio.testimonios.elementos.map((testimonio) => (
+          <article class="testimonio">
+            {testimonio.imagen && (
+              <img
+                src={conRutaBase(testimonio.imagen)}
+                alt={testimonio.textoAlternativo ?? `Evidencia de ${testimonio.autor}`}
+              />
+            )}
+            <p>“{testimonio.cita}”</p>
+            <strong>{testimonio.autor}</strong>
+            <span>{testimonio.contexto}</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion-compacta">
+    <div class="contenedor">
+      <div class="llamada llamada-final">
+        <div>
+          <h2>{sitio.llamadas.cierreGeneral.titulo}</h2>
+          <p>{sitio.llamadas.cierreGeneral.descripcion}</p>
         </div>
-      </article>
+        <BotonWhatsApp
+          mensaje={sitio.llamadas.cierreGeneral.cta.mensaje}
+          etiqueta={sitio.llamadas.cierreGeneral.cta.etiqueta}
+          evento="clic_whatsapp_cierre_inicio"
+        />
+      </div>
     </div>
   </section>
 </DisenoBase>
